@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta charset="UTF-8">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery.js" />
+	<script type="text/javascript" src="js/bootstrap.js" />
+	<link href="css/addons/datatables.min.css" rel="stylesheet">
+	<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+
+	<title>Renacer del Campo</title>
+</head>
+<style type="text/css">
+	table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+body{
+	background: url("img/pasto.jpg");
+	background-size: cover;
+}
+.head{
+	text-align: center;
+	font-family: monospace;
+	background-color: #fafafa;
+}
+.products{
+	background-color: whitesmoke;
+}
+.searcharea{
+	color: white;
+    background-color: #2b584e;
+}
+.logo{
+	width:150px;
+}
+.prInput{
+	width:100px;
+}
+.carrito{
+	font-size: 15pt;
+    width: 100%;
+
+    text-align: center;
+    background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.carrito:hover{
+	background-color: white;
+}
+.carrito2{
+	font-size: 15pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: black;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  /*box-shadow: 3px 3px #ecff9f;*/
+  
+}
+.rabi{
+	border-radius: 15px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  box-shadow: 3px 3px #ecff9f;
+}
+.ordenar{
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: #49a954;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.ordenar:hover{
+	background-color: white;
+	color:black;
+}
+.checkout{
+
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.checkout:hover{
+	background-color: white;
+	color:black;
+}
+.regresar{
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.regresar:hover{
+	background-color: white;
+	color:black;
+}
+.total_title{
+	font-size: 26pt;
+    width: 80%;
+    padding-left: 10%;
+    text-align: center;
+    background-color: #49a954;
+    color: white;
+}
+.total{
+	font-size: 26pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: #49a954;
+}
+.compras{
+	background-color: lightgrey;
+
+}
+.hide{
+
+}
+.totalind{
+	font-family: monospace;
+	color: black;
+	font-size: 16pt;
+}
+.button-p {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/plus.png) no-repeat;
+    background-size: cover;
+}
+.button-m {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/minus.png) no-repeat;
+    background-size: cover;
+}
+.inputsmall{
+	float: left;
+    width: 60px;
+    font: 700 20px Helvetica,sans-serif;
+    padding: 3px 0 0;
+}
+.mapa{
+	 border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  background-color: white;
+  color:black;
+}
+.splash{
+	display: none;
+	background-color: white;
+	width:100%;
+	padding:20px;
+	/*height:400px;*/
+}
+</style>
+
+<body>
+	<br>
+<div class="container head" >
+	<div class="row">
+		<div class="col-sm-6" >
+			<h1 ></h1>
+			<br>
+			<h5 style="color:black;">  </h5>
+      <span style="color:black;"> @elrenacerdelcampo es una Red Agroecológica que busca la seguridad alimentaria de familias campesinas de la Cuenca de Valle de Bravo-Amanalco y los vincula a Redes de Consumidores Responsables, que estén buscando una conexión más profunda con sus alimentos. Los esfuerzos están enfocados en las raíces e historias del producto, en los precios justos y en la regeneración del entendimiento del territorio -agua, suelo, bosques y habitantes.</span>
+			<h5 style="color:black;"> Contacto por Whatsapp: 722 108 2700</h5>
+			<br>
+			
+			<p>Si deseas visualizar tu pedido, entra al siguiente link: <a href="/orden" target="_blank">/orden</a></p>
+			<!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+		</div>
+		<div class="col-sm-6">
+			<img src="img/logo.png" class="logo">
+			<hr>
+            <audio controls>
+  <source src="cities.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio><br>
+Beck - cities
+<hr>
+			<span style="color:#49a954;">Hola! Lamentablemente el mercado ya se cerró esta semana. <br>
+				<p>Si quieres conocer más sobre que día se actualiza y como funcionan los pedidos  puedes escribirnos a nuestro WHATSAPP 5536499279. </p>
+
+	</span>
+		</div>
+	</div>
+
+
+	<hr/>
+</div>
+
+
+<div class="row">
+		
+</div> <!-- ROW -->
+</div> <!-- table_container -->
+</body>
+
+
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta charset="UTF-8">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery.js" />
+	<script type="text/javascript" src="js/bootstrap.js" />
+	<link href="css/addons/datatables.min.css" rel="stylesheet">
+	<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+
+	<title>Renacer del Campo</title>
+</head>
+<style type="text/css">
+	table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+body{
+	/*background: url("img/pasto.png");
+	background-size: 100vw;*/
+	background-color: white;
+}
+.head{
+	text-align: center;
+	font-family: monospace;
+	background-color: #fafafa;
+}
+.products{
+	background-color: whitesmoke;
+}
+.searcharea{
+	color: white;
+    background-color: #2b584e;
+}
+.logo{
+	width:150px;
+}
+.prInput{
+	width:100px;
+}
+.carrito{
+	font-size: 15pt;
+    width: 100%;
+
+    text-align: center;
+    background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.carrito:hover{
+	background-color: white;
+}
+.carrito2{
+	font-size: 15pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: black;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  /*box-shadow: 3px 3px #ecff9f;*/
+  
+}
+.rabi{
+	border-radius: 15px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  box-shadow: 3px 3px #ecff9f;
+}
+.ordenar{
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: #49a954;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.ordenar:hover{
+	background-color: white;
+	color:black;
+}
+.checkout{
+
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.checkout:hover{
+	background-color: white;
+	color:black;
+}
+.regresar{
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.regresar:hover{
+	background-color: white;
+	color:black;
+}
+.total_title{
+	font-size: 26pt;
+    width: 80%;
+    padding-left: 10%;
+    text-align: center;
+    background-color: #49a954;
+    color: white;
+}
+.total{
+	font-size: 26pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: #49a954;
+}
+.compras{
+	background-color: lightgrey;
+
+}
+.hide{
+
+}
+.totalind{
+	font-family: monospace;
+	color: black;
+	font-size: 16pt;
+}
+.button-p {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/plus.png) no-repeat;
+    background-size: cover;
+}
+.button-m {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/minus.png) no-repeat;
+    background-size: cover;
+}
+.inputsmall{
+	float: left;
+    width: 60px;
+    font: 700 20px Helvetica,sans-serif;
+    padding: 3px 0 0;
+}
+.mapa{
+	 border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  background-color: white;
+  color:black;
+}
+.splash{
+	display: none;
+	background-color: white;
+	width:100%;
+	padding:20px;
+	/*height:400px;*/
+}
+.glass {
+    position: fixed;
+    opacity:.0;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: url(https://www.searchpng.com/wp-content/uploads/2018/12/cracked-Glass.png);
+    background-size: cover;
+    z-index: 9000;
+    pointer-events: none;
+}
+.cuentaHec{
+	border-radius: 25px;
+  border: 2px solid #000;
+  padding: 25px;
+}
+.orderHec{
+	border-radius: 25px;
+  border: 2px solid #000;
+  padding: 25px;
+}
+#numorden{
+	font-size: 20pt;
+	font-family: monospace;
+	border:1px solid black;
+	text-align: center;
+}
+#avisofinal{
+	display: none;
+}
+</style>
+
+<body>
+	<div class="glass"></div>
+	<br>
+<div class="container head" >
+	<div class="row">
+		<div class="col-sm-6" >
+			<h1 ></h1>
+			<br>
+			<span style="color:black;"> @elrenacerdelcampo es una Red Agroecológica que busca la seguridad alimentaria de familias campesinas de la Cuenca de Valle de Bravo-Amanalco y los vincula a Redes de Consumidores Responsables, que estén buscando una conexión más profunda con sus alimentos. Los esfuerzos están enfocados en las raíces e historias del producto, en los precios justos y en la regeneración del entendimiento del territorio -agua, suelo, bosques y habitantes.</span>
+			<h5 style="color:black;"> Contacto por Whatsapp: 722 108 2700</h5>
+			<br>
+			<!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+		</div>
+		<div class="col-sm-6">
+			<img src="img/logo.png" class="logo">
+			<hr>
+		<audio controls>
+  <source src="cities.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio><br>
+Beck - cities
+<hr>
+			<span style="color:#49a954;">
+<br>
+<!-- <img src="img/onigiri.gif" style="width:150px;"> -->
+	</span>
+		</div>
+	</div>
+
+
+	<hr/>
+</div>
+
+
+<div class="container searcharea" >
+		<div class="row">
+		<!-- <div class="col-sm-4" id="search1">
+			<p class="instrucciones">1-Añade productos a tu orden mediante el menú</p>
+			
+		</div> -->
+		
+		<div class="col-sm-4" id="search2">
+
+			
+			<select class="form-control" id="clientesSel" style="display:none;">
+				<option value="null" >seleccionar</option>
+				<!-- <option value="c1">cliente 1</option>
+				<option value="c2">cliente 2</option> -->
+				<option value="new" selected="selected">Nuevo cliente</option>
+
+			</select>
+			<!-- <input type="password" id="fakepass"> -->
+			<p class="instrucciones">Completa la información de tu pedido:</p>
+			<br>
+			<form id="registroForm" >
+			  <div class="form-group" >
+			    <label for="exampleInputEmail1"></label>
+			    <input type="text" class="form-control rabi" id="nombre" aria-describedby="emailHelp" placeholder="NOMBRE">
+			    
+			  </div>
+			  <div class="form-group">
+			   <input type="text" class="form-control rabi" id="mail" aria-describedby="emailHelp" placeholder="MAIL">
+			    
+			  
+			  </div> 
+			  <div class="form-group">
+			    <input type="number" class="form-control rabi" id="telefono" aria-describedby="emailHelp" placeholder="TELÉFONO">
+			    
+			  
+			  </div> 
+			  <div class="form-group">
+			    <input type="text" class="form-control rabi" id="comentarios" aria-describedby="comments" placeholder="COMENTARIOS">
+			    
+			  </div>
+			  
+			  
+			</form>
+		</div>
+		<div class="col-sm-4" id="search3">
+			<p class="instrucciones">Escoge tu forma de pago y haz checkout</p>
+			
+			<div class="row">
+				<div class="col-sm-12">
+					<input type="radio" checked="checked" name="zona" id="zona1" value="50" rec="milpa"> Recolección en la milpa: $50<br>
+					<!-- <input checked="checked" type="radio" name="zona" id="zona1" value="50" rec="Sempertuya"> recolección en Sempertuya: $50<br> -->
+					<input type="radio" name="zona" id="zona2" value="50" rec="verde venus"> recolección en Verde Venus: $50<br>
+					
+				</div>	
+				
+			</div>
+			<br>
+			
+
+
+		</div>
+		<div class="col-sm-4" id="search3" style="padding: 30px;">
+			<div class="row">
+				
+					<div class="carrito2"><p style="font-size: 13pt;color:red;">total:</p><span id="sum">0</span> Pesos </div>
+				
+				
+			</div>
+			<br><br><br>
+			<div class="row">
+					<div class="checkout" onclick="checkout();">checkout</div>
+			</div>
+		</div>
+	</div>
+	<div class="row"><hr>
+	</div>	
+</div>	
+<hr/>
+<div class="container splash" >
+
+
+
+	<div class="regresar" onclick="regresar();">regresar al menú</div>
+	<br>
+	<div class="cuentaHec" >
+		<h3>Información de pedido</h3>
+		<h4 style="color:black;font-family: monospace;font-size: 13px;" id="confirmainfo"></h4>
+		<h4>TOTAL:</h4>
+		<h4 style="color:red;" id="confirmatotal"></h4>
+		<hr>
+	<p>Si quieres revisar nuevamente tu pedido, puedes utilizar el botón de “regresa al menú” y usar el botón de vizualisar pedido. </p>
+	<hr>
+
+	<h4>Siguientes pasos:</h4>
+	<ul>
+		<li>Revisa tu pedido y da click en "Completar orden"</li>
+	</ul>
+	<hr>
+	<h4>Orden</h4>
+	<table class="ordenHec">
+		<tr>
+			<td>producto</td>
+			<td>cantidad</td>
+			<td>total</td>
+		</tr>
+	</table>
+	</div>
+	
+	
+    
+<hr>
+   
+
+
+<div id="avisofinal"><p>Tu pedido ha sido procesado! Para recoger tu orden te pedimos llevar tu numero de orden al centro de acopio, cualquier duda contáctanos al WhatsApp: 722 108 2700.</p> <p>Si deseas visualizar tu pedido posteriormente, copia tu numero de orden e ingresalo en el siguiente link: <a href="/orden" target="_blank">ORDEN</a></p>
+	<h1 >Número de orden:</h1><div id="numorden" class="" ></div>
+</div>
+
+<br>
+<hr>
+<div class="ordenar" onclick="ordenar();">COMPLETAR ORDEN</div>
+</div>
+
+<div class="container" id="table_cont" >
+<div class="row" style="background-color: #d2ffcf;padding: 24px;">
+	<div class="col-sm-6" >
+		Buscar por palabra:<br>
+		<input type="text" id="myinput" style="width:100%;" class="rabi"/><br>
+	</div>   
+	<div class="col-sm-6" >
+		Visualizar solo compras:<br>
+			<div class="carrito" onclick="togglecar()"><img src="img/carrito.png" style="width:50px;"></div>
+	</div>
+	
+		
+			
+		
+
+
+</div>
+<div class="row">
+	<table id="myTable" class="table products" cellspacing="0" width="100%"> <!-- table-striped table-bordered table-sm -->
+	  	<thead>
+	    <tr>
+	      
+	      <th class="th-sm">Productor
+	      </th>
+	      <th class="th-sm">producto
+	      </th>
+	      <th class="th-sm">existencia
+	      </th>
+	      <th class="th-sm">unidad
+	      </th>
+	      <th class="th-sm">precio
+	      </th>
+	      <th class="th-sm">ordenar
+	      </th>
+	      <th class="th-sm">total por producto
+	      </th>
+	     
+	    </tr>
+	  	</thead>
+	  	<tbody id="tabla_productos">
+	    	<!-- <tr>
+		      
+		      <td>Cerveza lagger</td>
+		      <td>Mounstro de Agua</td>
+		      <td>$61</td>
+		      <td>input</td>
+		      <td>preciotot</td>
+		    </tr> -->
+		    
+		  </tbody>
+		  <tfoot>
+		    
+		  </tfoot>
+	</table>
+</div> <!-- ROW -->
+</div> <!-- table_container -->
+</body>
+<script type="text/javascript">
+	
+clientes=
+{      "c1":{
+		nombre:"Cliente 1",
+		telefono:"55----",
+		direccion:"Dir1",
+		comentario:"comentario1",
+		days:[0,1,1,0,1,1,0,0]
+		},
+		"c4":{
+		nombre:"Walo",
+		telefono:"55----",
+		direccion:"Dir2",
+		comentario:"comentario2",
+		days:[0,1,1,0,1,1,0,0]
+		},
+		"c3":{
+		nombre:"cliente 3",
+		telefono:"55----",
+		direccion:"Dir3",
+		comentario:"comentario3",
+		days:[0,0,0,0,1,1,0,0]
+		},
+		"c4":{
+		nombre:"cliente4",
+		telefono:"55----",
+		direccion:"Dir4",
+		comentario:"comentario4",
+		days:[1,1,1,1,1,1,1,0]
+		}
+};
+
+</script>
+<script type="text/javascript">
+_MENU={};
+_productos={};
+carselected=false;
+
+$(document).ready(function(){
+	clientList();
+	makesum();
+	getMenu();
+
+
+	  $("#myinput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#myTable tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	  $('input:radio[name=zona]').on("click", function() {
+	    makesum();
+	  });
+
+});
+
+function clientList(){
+	var date = new Date();
+	var daynum = date.getDay();
+	for(id in clientes){
+		if(clientes[id].days[daynum]){
+			$("#clientesSel").append('<option value="'+id+'">'+clientes[id].nombre+'</option>');
+		}
+	}
+}
+
+function getMenu(){
+
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+  		if (this.readyState == 4 && this.status == 200) {
+	    var myObj = JSON.parse(this.responseText);
+	    _MENU=myObj;
+	    console.log(_MENU)
+	    despliegamenuOrdenado();
+	    
+	  	}
+	};
+	xmlhttp.open("GET", "http://199.244.51.123:3001/menu", true);
+	xmlhttp.send();
+}
+function ordermenu(){
+	response=[];
+	for(entry in _MENU){
+		for(i=0;i<_MENU[entry].length;i++){
+			producto=_MENU[entry][i];
+			response.push(producto);
+		}
+	}
+	response.sort(function(a, b){
+	    if(a[0] < b[0]) { return -1; }
+	    if(a[0] > b[0]) { return 1; }
+	    return 0;
+	})
+	console.log("menu organizado",response)
+	return response;
+}
+function despliegamenuOrdenado(){
+	menuordenado=ordermenu();
+	productores=[];
+	for (var i = 0; i < menuordenado.length; i++) {
+		elemento=menuordenado[i];
+		originalname=elemento[5];
+		nomnew=originalname.split("(");
+		redes="-";
+		nomproductor=nomnew[0].trim();
+		nomproductor.replace('"','');
+
+		productores.push(nomproductor);
+
+		min=0;
+	    	d_=elemento;
+	    	nomproducto=d_[0].replace("[[[[[[[[[[[AGOTADO]]]]]]]]]]","(AGOTADO)").trim();
+	    	_productos[d_[9]]=[d_[0]+"[|]"+originalname,0,d_[7]]
+	    	//Procesa instagram
+	    	linkSocial=d_[5];
+	    	if(d_[5].includes("@")){
+	    		f1=d_[5].split("@");
+	    		linkSocial=f1[0].replace("(","")+'<a target="_blank" href="https://www.instagram.com/'
+	    					+f1[1].replace(")","") 
+	    					+ '">@'+f1[1].replace(")","")+'</a>';
+	    		
+	    	}
+	    	//procesa fraccionados
+	    	if(d_[1].includes("/")){
+	    		console.log(d_[1],"--")
+	    		if(d_[1].includes("1/2")){min=".5"}
+	    		if(d_[1].includes("1/4")){min=".25"}
+	    		if(d_[1].includes("1/100")){min=".01"}
+	    		trstr='<tr class="prow unselected" id="'+d_[9]+'">\
+		      <td>'+linkSocial+'</td>\
+		      <td style="background-color:#ffffff;">'+nomproducto+'</td>\
+		      <td>'+d_[3]+'</td>\
+		      <td>'+d_[1]+'</td>\
+		      <td>'+d_[7]+'</td>'+
+		      '<td style="min-width:200px;background-color:#ffffff;"><div class="inc button-m">+</div><input value="0" type="number" max="'+d_[3]+'" id="tentacles" idrow="'+d_[9]+'" onchange="updateInput(this.value,'+d_[9]+')" class="prInput inputsmall" producer="" product="'+d_[0]+'" name="tentacles"min="0" step="'+min+'" ><div class="plu button-p">-</div></td>'+
+		      '<td class="totalind">0</td>'+
+		    '</tr>'
+	    	}
+	    	else{
+	    		trstr='<tr class="prow unselected" id="'+d_[9]+'">\
+		      <td>'+linkSocial+'</td>\
+		      <td style="background-color:#ffffff;">'+nomproducto+'</td>\
+		      <td>'+d_[3]+'</td>\
+		      <td>'+d_[1]+'</td>\
+		      <td>'+d_[7]+'</td>'+
+		      '<td style="min-width:200px;background-color:#ffffff;"><div class="inc button-m">+</div><input value="0"  type="number" max="'+d_[3]+'" id="tentacles" idrow="'+d_[9]+'" onchange="updateInput(this.value,'+d_[9]+')" class=" inputsmall" producer="" step="1" product="'+d_[0]+'" name="tentacles"min="0" disabled><div class="plu button-p">-</div></td>'+
+		      '<td class="totalind">0</td>'+
+		    '</tr>'
+	    	}
+	    	
+	    	$("#tabla_productos").append(trstr)
+	    
+
+	}
+	initB();
+}
+function despliegaMenu(){
+	
+	productores=[];
+
+	for(entry in _MENU){
+		originalname=entry;
+		nomnew=entry.split("(");
+		redes="-";
+		nomproductor=nomnew[0].trim();
+		nomproductor.replace('"','');
+
+		productores.push(nomproductor);
+		// if(nomnew[1]){
+		// 	redes=nomnew[1].replace(")","");
+		// 	nomproductor='<a href="'+'https://www.instagram.com/'+nomproductor.replace("@","")+'" target="_blank">'+nomproductor+'</a>'
+		// }
+		buttons='';
+
+		
+	    for(i=0;i<_MENU[entry].length;i++){
+	    	min=0;
+	    	d_=_MENU[entry][i];
+	    	nomproducto=d_[0].replace("[[[[[[[[[[[AGOTADO]]]]]]]]]]","(AGOTADO)").trim();
+	    	_productos[d_[9]]=[d_[0]+"[|]"+originalname,0,d_[7]]
+	    	//Procesa instagram
+	    	linkSocial=d_[5];
+	    	if(d_[5].includes("@")){
+	    		f1=d_[5].split("@");
+	    		linkSocial=f1[0].replace("(","")+'<a target="_blank" href="https://www.instagram.com/'
+	    					+f1[1].replace(")","") 
+	    					+ '">@'+f1[1].replace(")","")+'</a>';
+	    		
+	    	}
+	    	//procesa fraccionados
+	    	if(d_[1].includes("/")){
+	    		console.log(d_[1],"--")
+	    		if(d_[1].includes("1/2")){min=".5"}
+	    		if(d_[1].includes("1/4")){min=".25"}
+	    		if(d_[1].includes("1/100")){min=".01"}
+	    		trstr='<tr class="prow unselected" id="'+d_[9]+'">\
+		      <td>'+linkSocial+'</td>\
+		      <td style="background-color:#ffffff;">'+nomproducto+'</td>\
+		      <td>'+d_[3]+'</td>\
+		      <td>'+d_[1]+'</td>\
+		      <td>'+d_[7]+'</td>'+
+		      '<td style="min-width:200px;background-color:#ffffff;"><div class="inc button-m">+</div><input value="0" type="number" max="'+d_[3]+'" id="tentacles" idrow="'+d_[9]+'" onchange="updateInput(this.value,'+d_[9]+')" class="prInput inputsmall" producer="" product="'+d_[0]+'" name="tentacles"min="0" step="'+min+'" ><div class="plu button-p">-</div></td>'+
+		      '<td class="totalind">0</td>'+
+		    '</tr>'
+	    	}
+	    	else{
+	    		trstr='<tr class="prow unselected" id="'+d_[9]+'">\
+		      <td>'+linkSocial+'</td>\
+		      <td style="background-color:#ffffff;">'+nomproducto+'</td>\
+		      <td>'+d_[3]+'</td>\
+		      <td>'+d_[1]+'</td>\
+		      <td>'+d_[7]+'</td>'+
+		      '<td style="min-width:200px;background-color:#ffffff;"><div class="inc button-m">+</div><input value="0"  type="number" max="'+d_[3]+'" id="tentacles" idrow="'+d_[9]+'" onchange="updateInput(this.value,'+d_[9]+')" class=" inputsmall" producer="" step="1" product="'+d_[0]+'" name="tentacles"min="0" disabled><div class="plu button-p">-</div></td>'+
+		      '<td class="totalind">0</td>'+
+		    '</tr>'
+	    	}
+	    	
+	    	$("#tabla_productos").append(trstr)
+	    }
+
+	}
+	initB();
+	    
+}
+function initB(){
+
+	$(".button-p").on("click", function() {
+		step=Number.parseFloat ( $(this).parent().find("input").attr("step") );
+		actual=Number.parseFloat ( $(this).parent().find("input").val() );
+		max=Number.parseFloat ( $(this).parent().find("input").attr("max") );
+		idrow= $(this).parent().find("input").attr("idrow") ;
+		if(actual+step <= max){
+			$(this).parent().find("input").val(actual+step);
+			updateInput($(this).parent().find("input").val(), idrow);
+		}
+		
+		//makesum();
+		console.log("plus",step)
+	});
+	$(".button-m").on("click", function() {
+		step=Number.parseFloat ( $(this).parent().find("input").attr("step") );
+		actual=Number.parseFloat ( $(this).parent().find("input").val() );
+		idrow= $(this).parent().find("input").attr("idrow") ;
+		if(actual-step >= 0){
+			$(this).parent().find("input").val(actual-step);
+			updateInput($(this).parent().find("input").val(), idrow);
+		}
+		
+		//makesum();
+	});
+
+
+}
+
+
+function togglecar(){
+	if(carselected){
+		$(".carrito").css("background-color","grey")
+		$(".unselected").toggle();
+		carselected=false;
+	}
+	else{
+		$(".carrito").css("background-color","cornflowerblue")
+		$(".unselected").toggle();
+		carselected=true;
+	}
+}
+function updateInput(ish, idrow){
+	_productos[idrow][1]=ish;
+	precio=Number.parseFloat( _productos[idrow][2].replace("$","") );
+	if(ish==0){
+		$("tr#"+idrow).css("background-color","white")
+		$("tr#"+idrow).addClass( "unselected" );
+		$("tr#"+idrow).find("td.totalind").html(0)
+	}
+	else{
+		$("tr#"+idrow).css("background-color","skyblue")
+		$("tr#"+idrow).removeClass( "unselected" );
+		totalind=Number.parseFloat(ish)*precio;
+		$("tr#"+idrow).find("td.totalind").html(totalind)
+	}
+	//console.log(_productos)
+	makesum()
+	//console.log(_productos)
+}
+function makesum(){
+	num=0;
+	sum=0;
+	envio=Number.parseFloat($('input:radio[name=zona]:checked').val() );
+	sum+=envio;
+	$("#compras0").html("");
+	$("#compras1").html("");
+	$("#compras2").html("");
+	for (id in _productos){
+		rem=num%3;
+		item=_productos[id];
+		precio=Number.parseFloat(item[2].replace("$","") );
+		cantidad=Number.parseFloat(item[1] );
+		sum+=precio*cantidad;
+		if (cantidad>0) {
+			carro=item[0]+" - "+cantidad+" - "+(precio*cantidad);
+			//$("#compras"+rem).append(carro);
+			num+=1;
+		}
+		
+	}
+	$("#sum").text(sum);
+}
+$( "#clientesSel" ).change(function() {
+  clienteSeleccionado=$("#clientesSel option:selected").attr("value");
+  if(clienteSeleccionado=="new"){
+  	$("#registroForm").show();
+  }
+  else{
+  	$("#registroForm").hide();
+  }
+});
+
+function checkout(){
+		clienteSeleccionado=$("#clientesSel option:selected").attr("value");
+		console.log(clienteSeleccionado);
+		
+		form_name=$("#nombre").val();
+		form_telefono=$("#telefono").val();
+		form_direccion=$('input:radio[name=zona]:checked').attr("rec");
+		form_comentario=$("#comentarios").val();
+		form_mail=$("#mail").val().trim();
+		
+		if(clienteSeleccionado=="null"){alert("Favor de escoger un cliente");}
+		else if(form_name=="" || form_mail=="" || form_telefono=="" || form_direccion=="" ){
+			alert("Favor de completar el registro");
+		}
+		else{
+			form_total=$("#sum").html();
+		envio=Number.parseFloat($('input:radio[name=zona]:checked').val() );
+		recoleccion=$('input:radio[name=zona]:checked').attr("rec") ;
+		orden={"nombre":form_name, "total":form_total,"telefono":form_telefono,"mail":form_mail,"dicreccion":form_direccion,"comentarios":form_comentario,"recoleccion":recoleccion,"costo_envio":envio,"orden":_productos}
+		
+		printCheckout(form_name,form_direccion,form_telefono,form_total,form_mail)
+		
+		$("#table_cont").hide();
+		$(".splash").show();
+		$(".searcharea").hide();
+		console.log(orden)
+		}
+		
+}
+function printCheckout(form_name,form_direccion,form_telefono,form_total,form_mail){
+	$(".ordenHec").html("");
+	$("#confirmainfo").html(form_name+" <Br> "+form_direccion+" <Br> "+form_telefono+" <Br> "+form_mail);
+	$("#confirmatotal").text("$"+form_total+"  Pesos");
+
+	for(key in _productos){
+		if(_productos[key][1]>0){
+			precioooo=parseFloat(_productos[key][1])*parseFloat(_productos[key][2].replace("$",""))
+			$(".ordenHec").append('<tr><td>'
+				+_productos[key][0]
+				+'</td><td style="background-color:skyblue;">'
+				+_productos[key][1]
+				+'</td><td>$ '
+				+precioooo
+				+'</td><tr>')
+		}
+	}
+}
+function regresar(){
+		
+		$("#table_cont").show();
+		$(".splash").hide();
+		$(".searcharea").show();
+}
+function ordenar(){
+	clienteSeleccionado=$("#clientesSel option:selected").attr("value");
+		$(".ordenar").hide();
+		orden={};
+		
+		form_name=$("#nombre").val();
+		form_telefono=$("#telefono").val();
+		form_direccion=$("#direccion").val();
+		form_mail=$("#mail").val();
+		form_comentario=$("#comentarios").val();
+		form_total=$("#sum").html();
+		envio=Number.parseFloat($('input:radio[name=zona]:checked').val() );
+		recoleccion=$('input:radio[name=zona]:checked').attr("rec") ;
+		
+		orden={"nombre":form_name, "total":form_total,"telefono":form_telefono,"dicreccion":form_direccion,"comentarios":form_comentario,"recoleccion":recoleccion,"costo_envio":envio,"mail":form_mail,"orden":_productos}
+
+	        $.ajax({
+        url: 'http://199.244.51.123:3001/orden',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(orden),
+        dataType: 'json',
+        success: function (data){
+
+			console.log("DATA",data);
+			$("#avisofinal").show();
+			$(".cuentaHec").hide();
+			$("#numorden").html(data.orden);
+			$(".regresar").hide();
+			
+		}
+    });
+
+}
+
+</script>
+	
+</script>
+</html>

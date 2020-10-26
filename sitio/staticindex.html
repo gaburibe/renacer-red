@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta charset="UTF-8">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery.js" />
+	<script type="text/javascript" src="js/bootstrap.js" />
+	<link href="css/addons/datatables.min.css" rel="stylesheet">
+	<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+
+	<title>Renacer del Campo</title>
+</head>
+<style type="text/css">
+/*	table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}*/
+body{
+	background: url("img/jitomate.jpg");
+	background-size: cover;
+}
+.head{
+	text-align: center;
+	font-family: monospace;
+	background-color: #fafafa;
+}
+.products{
+	background-color: whitesmoke;
+}
+.searcharea{
+	color: white;
+    background-color: #49a954;
+}
+.logo{
+	width:150px;
+}
+.prInput{
+	width:100px;
+}
+</style>
+
+<body>
+	<br>
+<div class="container head" >
+	<div class="row">
+		<div class="col-sm-6" >
+			<h1 ></h1>
+			<br>
+			<h5 style="color:black;"> @ciudad_silvestre nace con el objetivo de vincular a productores de zonas aledañas a la Ciudad de México con redes de consumo con interés en productos de alta calidad y en trazabilidad de producción.</h5>
+			<br>
+			<input type="button" value="¿Cómo funciona?" name=""/>
+		</div>
+		<div class="col-sm-6">
+			<img src="img/logo.png" class="logo">
+			<hr>
+			<h4 style="color:#49a954;">Menú para la semana del 14/abril al 21/abril del 2020</h4>
+		</div>
+	</div>
+
+
+	<hr/>
+</div>
+<div class="container searcharea" >
+		<div class="row">
+		<div class="col-sm-4" >
+			Bulabra:<br>
+	<input type="text" id="myinput"/>
+		</div>
+		<div class="col-sm-4" >
+			
+			<!-- Buscar por Productor:<br> -->
+	<!-- <select id="cars">
+  <option value="todos" selected="selected">Todos</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select> -->
+		</div>
+		<div class="col-sm-4" >
+			<!-- Buscar por Producto:<br>
+	<select id="cars">
+  <option value="todos" selected="selected">Todos</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select> -->
+		</div>
+	</div>
+	<div class="row"><hr>
+	</div>	
+</div>	
+<hr/>
+<div class="container" id="table_cont" >
+<div class="row"></div>
+<div class="row">
+	<table id="myTable" class="table products" cellspacing="0" width="100%"> <!-- table-striped table-bordered table-sm -->
+	  	<thead>
+	    <tr style="">
+	      
+	      <th class="th-sm">Producto
+	      </th>
+	      <th class="th-sm">productor
+	      </th>
+	      <th class="th-sm">unidad
+	      </th>
+	      <th class="th-sm">precio
+	      </th>
+	      <th class="th-sm">ordenar
+	      </th>
+	     
+	    </tr>
+	  	</thead>
+	  	<tbody id="tabla_productos">
+	    	
+		    
+		  <tr class="prow" id="3" style="background-color: white;">		      <td>betabel baby</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,3)" class="prInput" producer="" product="[[[[[[[[[[[AGOTADO]]]]]]]]]] betabel baby" name="tentacles" min="0"></td></tr><tr class="prow" id="4" style="">		      <td>Kale toscano</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,4)" class="prInput" producer="" product="Kale toscano" name="tentacles" min="0"></td></tr><tr class="prow" id="5" style="background-color: white;">		      <td>Queso Asadero (450gr)</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$129.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,5)" class="prInput" producer="" product="Queso Asadero (450gr)" name="tentacles" min="0"></td></tr><tr class="prow" id="6" style="">		      <td>Quelite</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,6)" class="prInput" producer="" product="Quelite" name="tentacles" min="0"></td></tr><tr class="prow" id="7" style="background-color: white;">		      <td>Quintonil</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,7)" class="prInput" producer="" product="Quintonil" name="tentacles" min="0"></td></tr><tr class="prow" id="8" style="">		      <td>Rábano amarillo</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,8)" class="prInput" producer="" product="Rábano amarillo" name="tentacles" min="0"></td></tr><tr class="prow" id="9" style="">		      <td>Aguacate</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Kilo</td>		      <td>$64.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,9)" class="prInput" producer="" product="Aguacate" name="tentacles" min="0"></td></tr><tr class="prow" id="10" style="">		      <td>Arúgula</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$20.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,10)" class="prInput" producer="" product="[[[[[[[[[[[AGOTADO]]]]]]]]]] Arúgula" name="tentacles" min="0"></td></tr><tr class="prow" id="11" style="">		      <td>Acelga arcoiris</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,11)" class="prInput" producer="" product="Acelga arcoiris" name="tentacles" min="0"></td></tr><tr class="prow" id="12" style="">		      <td>Algafita</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,12)" class="prInput" producer="" product="Algafita" name="tentacles" min="0"></td></tr><tr class="prow" id="13" style="">		      <td>Brócoli</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$17.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,13)" class="prInput" producer="" product="Brócoli" name="tentacles" min="0"></td></tr><tr class="prow" id="14" style="">		      <td>Cilantro</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,14)" class="prInput" producer="" product="Cilantro" name="tentacles" min="0"></td></tr><tr class="prow" id="15" style="">		      <td>Col verde</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$17.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,15)" class="prInput" producer="" product="Col verde" name="tentacles" min="0"></td></tr><tr class="prow" id="16" style="">		      <td>Colinabo morado y verde</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$17.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,16)" class="prInput" producer="" product="Colinabo morado y verde" name="tentacles" min="0"></td></tr><tr class="prow" id="17" style="">		      <td>Espinaca</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,17)" class="prInput" producer="" product="Espinaca" name="tentacles" min="0"></td></tr><tr class="prow" id="18" style="">		      <td>Hinojo</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,18)" class="prInput" producer="" product="Hinojo" name="tentacles" min="0"></td></tr><tr class="prow" id="19" style="">		      <td>Kale rizado verde y morado</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,19)" class="prInput" producer="" product="Kale rizado verde y morado" name="tentacles" min="0"></td></tr><tr class="prow" id="20" style="">		      <td>Lechuga mix</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,20)" class="prInput" producer="" product="Lechuga mix" name="tentacles" min="0"></td></tr><tr class="prow" id="21" style="">		      <td>Nopales sin espinas</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$3.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,21)" class="prInput" producer="" product="Nopales sin espinas" name="tentacles" min="0"></td></tr><tr class="prow" id="22" style="">		      <td>Ortiga</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,22)" class="prInput" producer="" product="Ortiga" name="tentacles" min="0"></td></tr><tr class="prow" id="23" style="">		      <td>Té de monte</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,23)" class="prInput" producer="" product="Té de monte" name="tentacles" min="0"></td></tr><tr class="prow" id="24" style="">		      <td>Tortillas</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Docena</td>		      <td>$21.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,24)" class="prInput" producer="" product="[[[[[[[[[[[AGOTADO]]]]]]]]]] Tortillas" name="tentacles" min="0"></td></tr><tr class="prow" id="25" style="">		      <td>Sopes</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Docena</td>		      <td>$29.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,25)" class="prInput" producer="" product="Sopes" name="tentacles" min="0"></td></tr><tr class="prow" id="26" style="">		      <td>Verdolagas</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Manojo</td>		      <td>$14.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,26)" class="prInput" producer="" product="Verdolagas" name="tentacles" min="0"></td></tr><tr class="prow" id="27" style="">		      <td>Alcachofa grande</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$36.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,27)" class="prInput" producer="" product="[[[[[[[[[[[AGOTADO]]]]]]]]]] Alcachofa grande" name="tentacles" min="0"></td></tr><tr class="prow" id="28" style="">		      <td>Pollo Libre Pastoreo ( Aprox. 2K)</td>		      <td>EL RENACER DEL CAMPO</td>		      <td>Pieza</td>		      <td>$333.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,28)" class="prInput" producer="" product="Pollo Libre Pastoreo ( Aprox. 2K)" name="tentacles" min="0"></td></tr><tr class="prow" id="30" style="">		      <td>Zarzamora</td>		      <td>AGROELITE</td>		      <td>Domo 200gr</td>		      <td>$86.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,30)" class="prInput" producer="" product="Zarzamora" name="tentacles" min="0"></td></tr><tr class="prow" id="31" style="">		      <td>BlueBerry</td>		      <td>AGROELITE</td>		      <td>Domo 200gr</td>		      <td>$86.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,31)" class="prInput" producer="" product="BlueBerry" name="tentacles" min="0"></td></tr><tr class="prow" id="32" style="">		      <td>Jengibre</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/4k) </td>		      <td>$64.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,32)" class="prInput" producer="" product="Jengibre" name="tentacles" min="0"></td></tr><tr class="prow" id="33" style="">		      <td>Pepino</td>		      <td>AGROELITE</td>		      <td>Pieza</td>		      <td>$16.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,33)" class="prInput" producer="" product="Pepino" name="tentacles" min="0"></td></tr><tr class="prow" id="34" style="">		      <td>Calabacita Italiana</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$31.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,34)" class="prInput" producer="" product="Calabacita Italiana" name="tentacles" min="0"></td></tr><tr class="prow" id="35" style="">		      <td>Limón Amarillo</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$129.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,35)" class="prInput" producer="" product="Limón Amarillo" name="tentacles" min="0"></td></tr><tr class="prow" id="36" style="">		      <td>Limón c/ semilla</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$36.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,36)" class="prInput" producer="" product="Limón c/ semilla" name="tentacles" min="0"></td></tr><tr class="prow" id="37" style="">		      <td>Jitomate Saladette</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$36.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,37)" class="prInput" producer="" product="Jitomate Saladette" name="tentacles" min="0"></td></tr><tr class="prow" id="38" style="">		      <td>Espárrago</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/4k) </td>		      <td>$214.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,38)" class="prInput" producer="" product="Espárrago" name="tentacles" min="0"></td></tr><tr class="prow" id="39" style="">		      <td>Fresa</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/4k) </td>		      <td>$46.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,39)" class="prInput" producer="" product="Fresa" name="tentacles" min="0"></td></tr><tr class="prow" id="40" style="">		      <td>Guayaba</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$21.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,40)" class="prInput" producer="" product="Guayaba" name="tentacles" min="0"></td></tr><tr class="prow" id="41" style="">		      <td>Champiñones</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$93.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,41)" class="prInput" producer="" product="Champiñones" name="tentacles" min="0"></td></tr><tr class="prow" id="42" style="">		      <td>Ciruelas Roja</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$57.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,42)" class="prInput" producer="" product="Ciruelas Roja" name="tentacles" min="0"></td></tr><tr class="prow" id="43" style="">		      <td>Manzana</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$39.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,43)" class="prInput" producer="" product="Manzana" name="tentacles" min="0"></td></tr><tr class="prow" id="44" style="">		      <td>Mango Ataulfo</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$31.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,44)" class="prInput" producer="" product="Mango Ataulfo" name="tentacles" min="0"></td></tr><tr class="prow" id="45" style="">		      <td>Tomate Verde</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$29.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,45)" class="prInput" producer="" product="Tomate Verde" name="tentacles" min="0"></td></tr><tr class="prow" id="46" style="">		      <td>Ajo</td>		      <td>AGROELITE</td>		      <td>Pieza</td>		      <td>$19.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,46)" class="prInput" producer="" product="Ajo" name="tentacles" min="0"></td></tr><tr class="prow" id="47" style="">		      <td>Cebolla Blanca</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$26.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,47)" class="prInput" producer="" product="Cebolla Blanca" name="tentacles" min="0"></td></tr><tr class="prow" id="48" style="">		      <td>Tomate Cherry</td>		      <td>AGROELITE</td>		      <td>Domo 200gr</td>		      <td>$26.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,48)" class="prInput" producer="" product="Tomate Cherry" name="tentacles" min="0"></td></tr><tr class="prow" id="49" style="">		      <td>Plátano Tabasco</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$26.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,49)" class="prInput" producer="" product="Plátano Tabasco" name="tentacles" min="0"></td></tr><tr class="prow" id="50" style="">		      <td>Frijoles negros</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$46.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,50)" class="prInput" producer="" product="Frijoles negros" name="tentacles" min="0"></td></tr><tr class="prow" id="51" style="">		      <td>Arroz blanco</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$31.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,51)" class="prInput" producer="" product="Arroz blanco" name="tentacles" min="0"></td></tr><tr class="prow" id="52" style="">		      <td>Papa Aplha</td>		      <td>AGROELITE</td>		      <td>Kilo (min 1/2k) </td>		      <td>$36.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,52)" class="prInput" producer="" product="Papa Aplha" name="tentacles" min="0"></td></tr><tr class="prow" id="54" style="">		      <td>Cerveza Monstruo de Agua: Blanca de Maguey (ipa blanca 7% alc. vol.)</td>		      <td>MONSTRUO DE AGUA</td>		      <td>Botella 355 ml</td>		      <td>$53.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,54)" class="prInput" producer="" product="Cerveza Monstruo de Agua: Blanca de Maguey (ipa blanca 7% alc. vol.)" name="tentacles" min="0"></td></tr><tr class="prow" id="55" style="">		      <td>Cerveza Monstruo de Agua: Sugoi (blonde ale 5% alc. vol.)</td>		      <td>MONSTRUO DE AGUA</td>		      <td>Botella 355 ml</td>		      <td>$53.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,55)" class="prInput" producer="" product="Cerveza Monstruo de Agua: Sugoi (blonde ale 5% alc. vol.) " name="tentacles" min="0"></td></tr><tr class="prow" id="56" style="">		      <td>Soda Probiótica Chinampa: Jengibre</td>		      <td>MONSTRUO DE AGUA</td>		      <td>Botella 355 ml</td>		      <td>$40.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,56)" class="prInput" producer="" product="[[[[[[[[[[[AGOTADO]]]]]]]]]] Soda Probiótica Chinampa: Jengibre" name="tentacles" min="0"></td></tr><tr class="prow" id="57" style="">		      <td>Soda Probiótica Chinampa: Té verde</td>		      <td>MONSTRUO DE AGUA</td>		      <td>Botella 355 ml</td>		      <td>$40.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,57)" class="prInput" producer="" product="Soda Probiótica Chinampa: Té verde" name="tentacles" min="0"></td></tr><tr class="prow" id="59" style="">		      <td>Dulce de leche (235 ml)</td>		      <td>PARRILLA PARAISO</td>		      <td>Pieza</td>		      <td>$121.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,59)" class="prInput" producer="" product="Dulce de leche (235 ml)" name="tentacles" min="0"></td></tr><tr class="prow" id="60" style="">		      <td>Mermelada fresa (235 ml)</td>		      <td>PARRILLA PARAISO</td>		      <td>Pieza</td>		      <td>$86.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,60)" class="prInput" producer="" product="Mermelada fresa (235 ml)" name="tentacles" min="0"></td></tr><tr class="prow" id="61" style="">		      <td>Mermelada cebolla (235 ml)</td>		      <td>PARRILLA PARAISO</td>		      <td>Pieza</td>		      <td>$79.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,61)" class="prInput" producer="" product="Mermelada cebolla (235 ml)" name="tentacles" min="0"></td></tr><tr class="prow" id="62" style="">		      <td>Hogaza (pan de campo)</td>		      <td>PARRILLA PARAISO</td>		      <td>Pieza</td>		      <td>$43.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,62)" class="prInput" producer="" product="Hogaza (pan de campo)" name="tentacles" min="0"></td></tr><tr class="prow" id="63" style="">		      <td>Baguette</td>		      <td>PARRILLA PARAISO</td>		      <td>Pieza</td>		      <td>$24.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,63)" class="prInput" producer="" product="Baguette" name="tentacles" min="0"></td></tr><tr class="prow" id="64" style="">		      <td>Pan de caja</td>		      <td>PARRILLA PARAISO</td>		      <td>Pieza</td>		      <td>$86.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,64)" class="prInput" producer="" product="Pan de caja" name="tentacles" min="0"></td></tr><tr class="prow" id="65" style="">		      <td>Pasta Fresca Fettuccini</td>		      <td>PARRILLA PARAISO</td>		      <td>Pieza</td>		      <td>$71.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,65)" class="prInput" producer="" product="Pasta Fresca Fettuccini" name="tentacles" min="0"></td></tr><tr class="prow" id="67" style="">		      <td>Panqué Zanahoria (800g aprox)</td>		      <td>SAHUMERIO</td>		      <td>Pieza</td>		      <td>$267.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,67)" class="prInput" producer="" product="Panqué Zanahoria (800g aprox) " name="tentacles" min="0"></td></tr><tr class="prow" id="68" style="">		      <td>Mermelada Guayaba con Piloncillo</td>		      <td>SAHUMERIO</td>		      <td>Pieza</td>		      <td>$126.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,68)" class="prInput" producer="" product="Mermelada Guayaba con Piloncillo" name="tentacles" min="0"></td></tr><tr class="prow" id="69" style="">		      <td>Monkey Butter (mermelada de plátano con piña y coco) 8oz</td>		      <td>SAHUMERIO</td>		      <td>Pieza</td>		      <td>$193.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,69)" class="prInput" producer="" product="Monkey Butter (mermelada de plátano con piña y coco) 8oz " name="tentacles" min="0"></td></tr><tr class="prow" id="70" style="">		      <td>Hummus (220g )</td>		      <td>SAHUMERIO</td>		      <td>Pieza</td>		      <td>$114.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,70)" class="prInput" producer="" product="Hummus (220g )" name="tentacles" min="0"></td></tr><tr class="prow" id="71" style="">		      <td>Bombones de Lavanda (160g )</td>		      <td>SAHUMERIO</td>		      <td>Pieza</td>		      <td>$143.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,71)" class="prInput" producer="" product="Bombones de Lavanda (160g )" name="tentacles" min="0"></td></tr><tr class="prow" id="72" style="">		      <td>Fruit Rollups 100g Mango/ Fresa</td>		      <td>SAHUMERIO</td>		      <td>Pieza</td>		      <td>$150.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,72)" class="prInput" producer="" product="Fruit Rollups 100g Mango/ Fresa " name="tentacles" min="0"></td></tr><tr class="prow" id="74" style="">		      <td>Yogurt (1L )</td>		      <td>MARMOTA</td>		      <td>Pieza</td>		      <td>$107.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,74)" class="prInput" producer="" product="Yogurt (1L )" name="tentacles" min="0"></td></tr><tr class="prow" id="75" style="">		      <td>Granola (avena, avellana, higo, semilla de hinojo, semilla de cilantro, pimienta, semilla de mostaza) (200g)</td>		      <td>MARMOTA</td>		      <td>Pieza</td>		      <td>$71.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,75)" class="prInput" producer="" product="Granola (avena, avellana, higo, semilla de hinojo, semilla de cilantro, pimienta, semilla de mostaza) (200g)" name="tentacles" min="0"></td></tr><tr class="prow" id="76" style="">		      <td>Queso de montaña con trufa (200g)</td>		      <td>MARMOTA</td>		      <td>Pieza</td>		      <td>$129.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,76)" class="prInput" producer="" product="Queso de montaña con trufa (200g) " name="tentacles" min="0"></td></tr><tr class="prow" id="77" style="">		      <td>Pork Belly Semicurado (500g c/u)</td>		      <td>MARMOTA</td>		      <td>Pieza</td>		      <td>$200.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,77)" class="prInput" producer="" product="Pork Belly Semicurado (500g c/u)" name="tentacles" min="0"></td></tr><tr class="prow" id="79" style="">		      <td>Salchichas Bratwurst (carne de cerdo con diez condimentos diferentes; producto no agroecológico) 4 salchichas, aprox 800gr</td>		      <td>CELESTIAL</td>		      <td>Pieza</td>		      <td>$147.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,79)" class="prInput" producer="" product="Salchichas Bratwurst (carne de cerdo con diez condimentos diferentes; producto no agroecológico) 4 salchichas, aprox 800gr" name="tentacles" min="0"></td></tr><tr class="prow" id="80" style="">		      <td>Salchichas Schubling (carne de cerdo molida fina y condimento ligero, consistencia blanda y esponjosa; producto no agroecológico) 4 salchichas, aprox 800gr</td>		      <td>CELESTIAL</td>		      <td>Pieza</td>		      <td>$147.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,80)" class="prInput" producer="" product="Salchichas Schubling (carne de cerdo molida fina y condimento ligero, consistencia blanda y esponjosa; producto no agroecológico) 4 salchichas, aprox 800gr" name="tentacles" min="0"></td></tr><tr class="prow" id="81" style="">		      <td>Rindswurst (carne de res condimentada, tiene notas de ajo y paprika y es ligeramente picante; producto no agroecológico) 4 salchichas, aprox 800gr</td>		      <td>CELESTIAL</td>		      <td>Pieza</td>		      <td>$187.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,81)" class="prInput" producer="" product="Rindswurst (carne de res condimentada, tiene notas de ajo y paprika y es ligeramente picante; producto no agroecológico) 4 salchichas, aprox 800gr" name="tentacles" min="0"></td></tr><tr class="prow" id="82" style="">		      <td>Weisswurst (carne de ternera, con notas de cebolla y perejil. Tiene color blanco, textura suave y se recomienda cocinar en agua caliente a fuego bajo; producto no agroecológivo) 4 salchichas, aprox 800gr</td>		      <td>CELESTIAL</td>		      <td>Pieza</td>		      <td>$187.00</td><td><input type="number" id="tentacles" onchange="updateInput(this.value,82)" class="prInput" producer="" product="Weisswurst (carne de ternera, con notas de cebolla y perejil. Tiene color blanco, textura suave y se recomienda cocinar en agua caliente a fuego bajo; producto no agroecológivo) 4 salchichas, aprox 800gr" name="tentacles" min="0"></td></tr></tbody>
+		  <tfoot>
+		    <tr style="">
+		      
+	      <th class="th-sm">Producto
+	      </th>
+	      <th class="th-sm">productor
+	      </th>
+	      <th class="th-sm">unidad
+	      </th>
+	      <th class="th-sm">precio
+	      </th>
+	      <th class="th-sm">ordenar
+	      </th>
+		    </tr>
+		  </tfoot>
+	</table>
+</div> <!-- ROW -->
+</div> <!-- table_container -->
+</body>
+<script type="text/javascript">
+_MENU={};
+_productos={};
+$(document).ready(function(){
+	getMenu()
+
+
+	  $("#myinput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#myTable tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+
+});
+
+function getMenu(){
+
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+  		if (this.readyState == 4 && this.status == 200) {
+	    var myObj = JSON.parse(this.responseText);
+	    _MENU=myObj;
+	    despliegaMenu();
+	    
+	  	}
+	};
+	xmlhttp.open("GET", "/menu", true);
+	xmlhttp.send();
+}
+
+function despliegaMenu(){
+	productores=[];
+
+	for(entry in _MENU){
+
+		nomnew=entry.split("(");
+		redes="-";
+		nomproductor=nomnew[0].trim();
+		nomproductor.replace('"','');
+
+		productores.push(nomproductor);
+		// if(nomnew[1]){
+		// 	redes=nomnew[1].replace(")","");
+		// 	nomproductor='<a href="'+'https://www.instagram.com/'+nomproductor.replace("@","")+'" target="_blank">'+nomproductor+'</a>'
+		// }
+		
+	    for(i=0;i<_MENU[entry].length;i++){
+
+	    	d_=_MENU[entry][i];
+	    	nomproducto=d_[0].replace("[[[[[[[[[[[AGOTADO]]]]]]]]]]","").trim();
+	    	_productos[d_[9]]=[d_[0]+" | "+nomproductor,0]
+	    	
+	    	trstr='<tr class="prow" id="'+d_[9]+'">\
+		      <td>'+nomproducto+'</td>\
+		      <td>'+nomproductor+'</td>\
+		      <td>'+d_[1]+'</td>\
+		      <td>'+d_[5]+'</td>'+
+		      '<td><input type="number" id="tentacles" onchange="updateInput(this.value,'+d_[9]+')" class="prInput" producer="" product="'+d_[0]+'" name="tentacles"min="0" ></td>'+
+		    '</tr>'
+	    	$("#tabla_productos").append(trstr)
+	    }
+	}
+	    
+}
+
+function updateInput(ish, idrow){
+	_productos[idrow][1]=ish;
+	if(ish==0){
+		$("tr#"+idrow).css("background-color","white")
+	}
+	else{
+		$("tr#"+idrow).css("background-color","skyblue")
+	}
+	
+	//console.log(_productos)
+}
+</script>
+	
+</script>
+</html>

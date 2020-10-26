@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta charset="UTF-8">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery.js" />
+	<script type="text/javascript" src="js/bootstrap.js" />
+	<link href="css/addons/datatables.min.css" rel="stylesheet">
+	<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+
+	<title>〔 〄 〕 - Orion</title>
+</head>
+<style type="text/css">
+	table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+
+.head{
+	text-align: center;
+	font-family: monospace;
+	background-color: #fafafa;
+}
+.products{
+	background-color: whitesmoke;
+}
+.searcharea{
+	color: white;
+    background-color: #49a954;
+}
+.logo{
+	width:150px;
+}
+.prInput{
+	width:100px;
+}
+.carrito{
+	font-size: 15pt;
+    width: 100%;
+
+    text-align: center;
+    background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.carrito:hover{
+	background-color: white;
+}
+.carrito2{
+	font-size: 15pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: black;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  /*box-shadow: 3px 3px #5049a9;*/
+  
+}
+.rabi{
+	border-radius: 15px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  box-shadow: 3px 3px #5049a9;
+}
+.ordenar{
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: #49a954;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.ordenar:hover{
+	background-color: white;
+	color:black;
+}
+.checkout{
+
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.checkout:hover{
+	background-color: white;
+	color:black;
+}
+.regresar{
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.regresar:hover{
+	background-color: white;
+	color:black;
+}
+.total_title{
+	font-size: 26pt;
+    width: 80%;
+    padding-left: 10%;
+    text-align: center;
+    background-color: #49a954;
+    color: white;
+}
+.total{
+	font-size: 26pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: #49a954;
+}
+.compras{
+	background-color: lightgrey;
+
+}
+.hide{
+
+}
+.totalind{
+	font-family: monospace;
+	color: black;
+	font-size: 16pt;
+}
+.button-p {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/plus.png) no-repeat;
+    background-size: cover;
+}
+.button-m {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/minus.png) no-repeat;
+    background-size: cover;
+}
+.inputsmall{
+	float: left;
+    width: 60px;
+    font: 700 20px Helvetica,sans-serif;
+    padding: 3px 0 0;
+}
+.mapa{
+	 border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  background-color: white;
+  color:black;
+}
+.splash{
+	display: none;
+	background-color: white;
+	width:100%;
+	padding:20px;
+	/*height:400px;*/
+}
+.col-sm-6 {
+
+    background-color: white;
+}
+</style>
+<link rel="stylesheet" href="css/orion.css">
+<body>
+	<br>
+<div class="container head" >
+	<div class="row">
+		<div class="col-sm-6" style="background-color:#8d97bd !important;>
+			<h1 ></h1>
+			<br>
+			<h5 style="color:black;"> Administrador de órdenes</h5>
+			<h5 style="color:black;"> </h5>
+			<br>
+			<p style="color:black;">En esta sección se administran la ordenes que recibe el mercado desde el menú. Las órdenes se confirman al recibir el comprobante de pago. La acción de confirmarla crea la guía de entrega en forma de PDF. Una orden confirmada puede tambien "des-confirmarse"</p>
+			<p>Si deseas visualizar tu pedido, entra al siguiente link: <a href="http://www.ciudadsilvestre.mx/orden" target="_blank">www.ciudadsilvestre.mx/orden</a></p>
+			<!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+		</div>
+		<div class="col-sm-6">
+			<div class="logo"></div><!-- <img src="img/logo.png" class="logo"> -->
+			<hr>
+			<input type="text" id="userF">
+      <input type="password" id="passwordF">
+      <br>
+      <br>
+      <input type="button" value="Actualizar lista" onclick="getOrdenes();" />
+
+			<!-- <span style="color:#49a954;">Hola! Lamentablemente la lista ya se cerró esta semana. La lista se actualiza los fines de semana y se cierra los días Martes a las 10AM. <br>
+				<p>Si quieres conocer más sobre que día se actualiza y como funcionan los pedidos  puedes escribirnos a nuestro WHATSAPP 5572117094. </p>
+
+	</span> -->
+		</div>
+		<div class="col-sm-4" >operaciones:<Br>
+			<div class="button_cont" align="center"><a class="button_c" href="#"  rel="nofollow noopener" onclick="getMatrizOrdenes()">Matríz de órdenes</a></div>
+			<div class="button_cont" align="center"><a class="button_c" href="#"  rel="nofollow noopener" onclick="getResumen()">Resumen por productor</a></div>
+			<div class="button_cont" align="center"><a class="button_c" href="#"  rel="nofollow noopener" onclick="getResumenZonas()">Resumen por zona</a></div>
+		</div>
+		<div class="col-sm-8" >consola:<Br><textarea id="consola" class="form-control texta"></textarea></div>
+	</div>
+
+
+	<hr/>
+</div> <!-- ROW -->
+
+
+<div class="row">
+	<table id="myTable" class="table products" cellspacing="0" width="100%"> <!-- table-striped table-bordered table-sm -->
+	  	<thead>
+	    <tr>
+	      <th class="th-sm">Ñ
+	      </th>
+	      <th class="th-sm">orden
+	      </th>
+	      <th class="th-sm">nombre
+	      </th>
+	      <th class="th-sm">total
+	      </th>
+	      <th class="th-sm">telefono
+	      </th>
+	      <th class="th-sm">info
+	      </th>
+	      <th class="th-sm">estado
+	      </th>
+	     
+	    </tr>
+	  	</thead>
+	  	<tbody id="tabla_productos">
+	    	<!-- <tr>
+		      
+		      <td>Cerveza lagger</td>
+		      <td>Mounstro de Agua</td>
+		      <td>$61</td>
+		      <td>input</td>
+		      <td>preciotot</td>
+		    </tr> -->
+		    
+		  </tbody>
+		  <tfoot>
+		    
+		  </tfoot>
+	</table>	
+</div> <!-- ROW -->
+<div class="row">
+		
+</div> <!-- ROW -->
+</div> <!-- table_container -->
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	//getOrdenes();
+
+
+});	
+function utf8_to_b64( str ) {
+  return window.btoa(unescape(encodeURIComponent( str )));
+}
+function getMatrizOrdenes(){
+	_P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+	console.log(_P)
+    op={"permission":_P}
+	$.ajax({
+        url: '/orion/ordenes',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(op),
+        success: function (data){
+        	var matriz = data.replace(/\;/g, '\t');
+        	var matriz = matriz.replace(/<Br>/g, '\n');
+        	$("#consola").val(matriz)
+		    console.log(matriz)
+			    
+			   
+	    }
+	});
+}
+function getResumen(){
+	_P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+    op={"permission":_P}
+	$.ajax({
+        url: '/orion/resumen',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(op),
+        success: function (data){
+        	//obj=JSON.parse(data)
+        	//console.log(obj)
+        	$("#consola").val(data)
+		    
+			    
+			   
+	    }
+	});
+}
+function getResumenZonas(){
+	_P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+    op={"permission":_P}
+	$.ajax({
+        url: '/orion/resumenzonas',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(op),
+        success: function (data){
+        	//obj=JSON.parse(data)
+        	//console.log(obj)
+        	$("#consola").val(data)
+		    
+			    
+			   
+	    }
+	});
+}
+function getOrdenes(){
+	_P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+    op={"permission":_P}
+    $.ajax({
+        url: '/orion/backOrdenes',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(op),
+        success: function (data){
+        	var myObj = data;
+		    _MENU=myObj;
+		    console.log(_MENU)
+			    for(orden in _MENU["ordenes"]){
+			    	status="<p style='color:blue;'>REGISTRADA</p>";
+			    	filerep='<a target="_blank" href="/ordenes/'+orden+'"'+'>JSON</a>';
+			    	boton='<div class="plu button-p" onclick=\'confirm("'+orden+'");\'>-</div>';
+			    	if(_MENU["bandeja"][orden]){status="<p style='color:yellowgreen;'>CONFIRMADA</p>";
+			    	filerep='<a target="_blank" href="/bandeja/'+orden+'.pdf"'+'>PDF</a>';
+			    boton='<div class="inc button-m" onclick=\'unconfirm("'+orden+'");\'>+</div>';}
+			    	orden_st=orden.replace(".json","");
+			    	orden_info=_MENU["ordenes"][orden];
+			    	trstr='<tr class="prow unselected" id="'+orden_st+'">\
+				      <td></td><td>'+orden_st+'</td>\
+				      <td style="background-color:#ffffff;">'+orden_info.nombre+'</td>\
+				      <td>'+orden_info.total+'</td>\
+				      <td>'+orden_info.telefono+'</td>\
+				      <td>'+"info"+'</td>\
+				      <td>'+status+'</td>\
+				      <td>'+filerep+'</td>\
+				      <td>'+boton+'</td>'
+				      ;
+				      $("#tabla_productos").append(trstr)
+			    }
+	    }
+	});
+	$("#tabla_productos").html("")
+	
+}
+
+function confirm(nombre){
+	_P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+		$(".button-m").hide();
+		$(".button-p").hide();
+		orden={"nombre":nombre,"permission":_P}
+	$.ajax({
+        url: '/orion/backconfirm',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(orden),
+        success: function (data){
+        	getOrdenes();
+			console.log("confirmado",data);
+	    }
+	});
+}
+function unconfirm(nombre){
+	_P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+	$(".button-m").hide();
+		$(".button-p").hide();
+		orden={"nombre":nombre,"permission":_P}
+	$.ajax({
+        url: '/orion/backunconfirm',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(orden),
+        success: function (data){
+        	getOrdenes();
+				console.log("DELETED",data);
+	    }
+	});
+}
+
+</script>
+
+
+</html>

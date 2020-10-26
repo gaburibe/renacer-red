@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery.js" />
+  <script type="text/javascript" src="js/bootstrap.js" />
+  <link href="css/addons/datatables.min.css" rel="stylesheet">
+  <!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+  <title>〔 〄 〕 - Orion</title>
+</head>
+<style type="text/css">
+  table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+body{
+  background-color: black;
+ /* background: url("img/jitomate.jpg");*/
+  /*background-size: cover;*/
+}
+.head{
+  text-align: center;
+  font-family: monospace;
+  background-color: #fafafa;
+}
+.products{
+  background-color: whitesmoke;
+}
+.searcharea{
+  color: white;
+    background-color: #49a954;
+}
+.logo{
+  width:150px;
+}
+.prInput{
+  width:100px;
+}
+.carrito{
+  font-size: 15pt;
+    width: 100%;
+
+    text-align: center;
+    background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.carrito:hover{
+  background-color: white;
+}
+.carrito2{
+  font-size: 15pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: black;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  /*box-shadow: 3px 3px #5049a9;*/
+  
+}
+.rabi{
+  border-radius: 15px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  box-shadow: 3px 3px #5049a9;
+}
+.ordenar{
+  font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: #49a954;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.ordenar:hover{
+  background-color: white;
+  color:black;
+}
+.checkout{
+
+  font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.checkout:hover{
+  background-color: white;
+  color:black;
+}
+.regresar{
+  font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.regresar:hover{
+  background-color: white;
+  color:black;
+}
+.total_title{
+  font-size: 26pt;
+    width: 80%;
+    padding-left: 10%;
+    text-align: center;
+    background-color: #49a954;
+    color: white;
+}
+.total{
+  font-size: 26pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: #49a954;
+}
+.compras{
+  background-color: lightgrey;
+
+}
+.hide{
+
+}
+.totalind{
+  font-family: monospace;
+  color: black;
+  font-size: 16pt;
+}
+.button-p {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/plus.png) no-repeat;
+    background-size: cover;
+}
+.button-m {
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    background: url(img/minus.png) no-repeat;
+    background-size: cover;
+}
+.inputsmall{
+  float: left;
+    width: 60px;
+    font: 700 20px Helvetica,sans-serif;
+    padding: 3px 0 0;
+}
+.mapa{
+   border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  background-color: white;
+  color:black;
+}
+.splash{
+  display: none;
+  background-color: white;
+  width:100%;
+  padding:20px;
+  /*height:400px;*/
+}
+.col-sm-6 {
+
+    background-color: white;
+}
+textarea{
+      margin: 15px;
+}
+.notshow{
+  display: none;
+}
+</style>
+
+<body>
+  <br>
+<div class="container head" >
+  <div class="row">
+    <div class="col-sm-6" >
+      <h1 >Tutorial de administración</h1>
+      <p class="tutorial">Aquí se administra el ciclo del mercado que cuenta con 3 etapas:</p>
+      <ul>
+        <li>1 - Abrir tienda: Al subir un csv válido see abre el mercado con los productos específicados</li>
+        <li>2 - Cerrar tienda: inabilita la toma de órdenes y el menú</li>
+        <li>3 - Cerrar operación: Archiva las órdenes y limpia el sistema para empezar un nuevo ciclo</li>
+      </ul>
+
+      <br>
+      <h5 style="color:black;"> STATUS</h5>
+      <h5 style="color:red;" id="status"> - </h5>
+      <br>
+      
+     <!--  <p>Si deseas visualizar tu pedido, entra al siguiente link: <a href="http://www.ciudadsilvestre.mx/orden" target="_blank">www.ciudadsilvestre.mx/orden</a></p> -->
+      <!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+    </div>
+    <div class="col-sm-6">
+      <img src="img/orion.png" class="logo">
+      <hr>
+      <p class="tutorial">Esta sección esta protegida con un login de administrador. En esta prueba el usuario es "orion" y el password es "1234"</p>
+      <hr>
+      <input type="text" id="userF">
+      <input type="password" id="passwordF">
+      
+
+  </span> 
+    </div>
+  </div>
+
+
+  <hr/>
+</div> <!-- ROW -->
+
+  
+
+
+<div class="container head notshow" id="op_3">
+  <div class="row">
+    <div class="col-sm-6" >
+      <h1 >Abrir tienda</h1>
+      
+      
+      <p>Sube un menú para abrir operaciones </p>
+      
+      <!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+    </div>
+    <div class="col-sm-6">
+      <textarea id="menuarea"></textarea>
+      <br>
+      <button onclick="uploadmenu()">SUBIR</button>
+    </div>
+  </div>
+
+
+  <hr/>
+</div> <!-- CONT -->
+
+<div class="container head notshow" id="op_0">
+  <div class="row">
+    <div class="col-sm-6" >
+      <h1 >Cerrar tienda</h1>
+      
+      
+      <p>Al realizar esta operación ya no se aceptarán órdenes </p>
+      
+      <!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+    </div>
+    <div class="col-sm-6">
+      <br>
+      <button onclick="closeshop()">cerrar</button>    </div>
+  </div>
+ </div>
+</div>
+<div class="container head notshow" id="op_1">
+  <div class="row">
+    <div class="col-sm-6" >
+      <h1 >Cerrar operaciones</h1>
+      
+      
+      <p>Al hacer el corte ya no se podrán ver las ordenes de este ciclo </p>
+      
+      <!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+    </div>
+    <div class="col-sm-6">
+      <br>
+      <button onclick="closeop()">cerrar Operacion</button>    </div>
+  </div>
+ </div>
+</div>
+ 
+
+
+
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  
+  getStatus();
+
+
+}); 
+
+
+function getStatus(){
+  status="0-activo";
+  st=0;
+    $("#tabla_productos").html("")
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+        _MENU=myObj;
+        console.log(_MENU)
+        if(_MENU.menu==0){
+          status="1-tienda cerrada";
+          st=1;
+        }
+        if(_MENU.ordenes==0){
+          status="2-operación cerrada";
+          st=3;
+        }
+        if(_MENU.bandeja==0){
+          status="3-Listo para abrir";
+          st=3;
+        }
+      $(".notshow").hide();
+      $("#op_"+st).show();
+      $("#status").html(status)
+      
+      }
+  };
+  xmlhttp.open("GET", "/status", true);
+  xmlhttp.send();
+}
+
+function utf8_to_b64( str ) {
+  return window.btoa(unescape(encodeURIComponent( str )));
+}
+
+
+function uploadmenu(){
+  _P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+    newmenu=$("#menuarea").val();
+    op={"newmenu":newmenu,"permission":_P}
+  $.ajax({
+        url: '/orion/uploadmenu',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(op),
+        success: function (data){
+          getStatus();
+          console.log("confirmado",data);
+      }
+  });
+}
+function closeshop(){
+    _P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+    console.log(_P)
+    newmenu=$("#menuarea").val();
+    op={"permission":_P}
+  $.ajax({
+        url: '/orion/closeShop',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(op),
+        success: function (data){
+          getStatus();
+          console.log("confirmado",data);
+      }
+  });
+}
+function closeop(){
+    _P=utf8_to_b64($("#passwordF").val()+"||"+ $("#userF").val());
+    newmenu=$("#menuarea").val();
+    op={"permission":_P}
+  $.ajax({
+        url: '/orion/closeOp',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(op),
+        success: function (data){
+          getStatus();
+          console.log("confirmado",data);
+      }
+  });
+}
+
+
+</script>
+
+
+</html>

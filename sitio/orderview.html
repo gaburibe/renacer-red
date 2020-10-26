@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta charset="UTF-8">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery.js" />
+	<script type="text/javascript" src="js/bootstrap.js" />
+	<link href="css/addons/datatables.min.css" rel="stylesheet">
+	<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+
+	<title>Renacer del Campo</title>
+</head>
+<style type="text/css">
+/*	table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}*/
+body{
+	background: url("img/pasto.png");
+	background-size: cover;
+}
+.head{
+	text-align: center;
+	font-family: monospace;
+	background-color: #fafafa;
+}
+.products{
+	background-color: whitesmoke;
+}
+.searcharea{
+	color: white;
+    background-color: #49a954;
+}
+.logo{
+	width:150px;
+}
+.prInput{
+	width:100px;
+}
+
+.rabi{
+	border-radius: 15px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  box-shadow: 3px 3px #5049a9;
+}
+.ordenar{
+	font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: #49a954;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #5049a9;
+  
+}
+.ordenar:hover{
+	background-color: white;
+	color:black;
+}
+
+
+
+.inputsmall{
+	float: left;
+    width: 60px;
+    font: 700 20px Helvetica,sans-serif;
+    padding: 3px 0 0;
+}
+.row{
+	padding:10px;
+}
+</style>
+
+<body>
+	<br>
+<div class="container head" >
+	<div class="row">
+		<div class="col-sm-6" >
+			<h1 ></h1>
+			<br>
+			<h5 style="color:black;"> </h5>
+			<h5 style="color:black;"> Contacto por Whatsapp: 722 108 2700</h5>
+			<br>
+			<!-- <input type="button" value="¿Cómo funciona?" name=""/> -->
+		</div>
+		<div class="col-sm-6">
+			<img src="img/logo.png" class="logo">
+			<hr>
+			<h4 style="color:#49a954;">Visor de órdenes </h4>
+		</div>
+	</div>
+
+
+	<hr/>
+</div>
+
+
+<div class="container searcharea" >
+
+</div>	
+<hr/>
+
+<div class="container" id="table_cont" >
+<div class="row" style="background-color: white;">
+	<div class="col-sm-12" >
+		Ingresa tu número de orden:<br>
+		<input type="text" id="myinput" style="width:80%;" class="rabi"/><br><br>
+		<div class="ordenar" onclick="ordenview()" style="width:30%;">BUSCAR</div>
+	</div>  
+	
+</div>
+<br>
+
+<div class="row" style="background-color: white;">
+	<div class="col-sm-12" >
+		Nombre: <span id="info1"></span><br>
+		Dirección: <span id="info2"></span><br>
+		Recolección: <span id="infoRecoleccion"></span><br>
+		Teléfono: <span id="info3"></span><br>
+		Mail: <span id="infoMail"></span><br>
+		Comentarios: <span id="info6"></span><br>
+		cuota de operación y fondo de ahorro: <span id="info4"></span><br>
+		Total: <span id="info5"></span>
+	</div>  
+	
+</div>
+<div class="row">
+	<table id="myTable" class="table products" cellspacing="0" width="100%"> <!-- table-striped table-bordered table-sm -->
+	  	<thead>
+	    <tr>
+	      
+	      <th class="th-sm">Productor
+	      </th>
+	      <th class="th-sm">producto
+	      </th>
+	      <th class="th-sm">cantidad
+	      </th>
+	      <th class="th-sm">precio
+	      </th>
+	      <th class="th-sm">total por producto
+	      </th>
+	     
+	    </tr>
+	  	</thead>
+	  	<tbody id="tabla_productos">
+	    	<!-- <tr>
+		      
+		      <td>Cerveza lagger</td>
+		      <td>Mounstro de Agua</td>
+		      <td>$61</td>
+		      <td>input</td>
+		      <td>preciotot</td>
+		    </tr> -->
+		    
+		  </tbody>
+		  <tfoot>
+		    
+		  </tfoot>
+	</table>
+</div> <!-- ROW -->
+</div> <!-- table_container -->
+</body>
+<script type="text/javascript">
+_MENU={};
+_productos={};
+carselected=false;
+$(document).ready(function(){
+	  $("#myinput").on("keyup", function() {
+	    
+	  });
+});
+
+function ordenview(){
+	orden={}
+	mi=$("#myinput").val();
+	orden["nombre"]=mi;
+	$.ajax({
+        url: '/ordenview',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(orden),
+        dataType: 'json',
+        success: function (data){
+			
+			despliegaMenu(data )
+		}
+    });
+
+}
+
+function despliegaMenu(data){
+	$("#tabla_productos").html("");
+	orden=data["orden"]
+	$("#info1").text(data["nombre"]);
+	$("#info2").text(data["dicreccion"]);
+	$("#infoRecoleccion").text(data["recoleccion"]);
+	$("#info3").text(data["telefono"]);
+	$("#infoMail").text(data["mail"]);
+	$("#info4").text(data["costo_envio"]);
+	$("#info5").text(data["total"]);
+	$("#info6").text(data["comentarios"]);
+	console.log("DATA",data);
+	for(i in orden){
+		trstr="";
+		d_=orden[i];
+		if(orden[i][1]>0){
+			sp=d_[0].split("[|]");
+			totalp=parseFloat( d_[2].replace("$","") )*d_[1];
+			trstr='<tr class="prow unselected" id="'+d_[9]+'">\
+		      <td>'+sp[1]+'</td>\
+		      <td>'+sp[0]+'</td>\
+		      <td>'+d_[1]+'</td>\
+		      <td>'+d_[2]+'</td>\
+		      <td>'+totalp+'</td>';
+		}
+		$("#tabla_productos").append(trstr)
+	}
+	    
+}
+
+
+</script>
+	
+</script>
+</html>

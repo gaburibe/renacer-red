@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://ciudad-silvestre.superhi.com/ -->
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="generator" content="SuperHi">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RENACER DEL CAMPO - ORIÓN</title>
+        <link rel="stylesheet" href="css/_base.css">
+        <link rel="stylesheet" href="css/stylecs.css">
+        <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    </head>
+    <style type="text/css">
+        .inputsmall{
+    width: 50px;
+    
+    }
+    #info{
+        /*display:none;*/
+    }
+    .col{
+        font-size: 12px !important;
+    }
+    #registro_input{
+
+    }
+    #info_input{
+        display:none;
+    }
+    #logout_bt{
+        display:none;
+    }
+    #menuTable{
+        display: none;
+    }
+    #horariosTable{
+        display:none;
+    }
+    #checkTable{
+        display:none;
+    }
+    .searcharea{
+    color: white;
+    background-color: #5cb09d;
+}
+.logo{
+    width:150px;
+}
+.prInput{
+    width:100px;
+}
+
+.carrito:hover{
+    background-color: white;
+}
+.carrito2{
+    font-size: 15pt;
+    width: 100%;
+    text-align: center;
+    background-color: #fafafa;
+    color: black;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  /*box-shadow: 3px 3px #ecff9f;*/
+  
+}
+.rabi{
+    border-radius: 15px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  box-shadow: 3px 3px #ecff9f;
+}
+.ordenar{
+    font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: #49a954;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.ordenar:hover{
+    background-color: white;
+    color:black;
+}
+.checkout{
+
+    font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.checkout:hover{
+    background-color: white;
+    color:black;
+}
+.regresar{
+    font-size: 15pt;
+    width: 100%;
+    padding-left: 10%;
+    text-align: center;
+        background-color: slategrey;
+    color: white;
+    border-radius: 25px;
+  border: 2px solid dimgrey;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px #ecff9f;
+  
+}
+.regresar:hover{
+    background-color: white;
+    color:black;
+}
+.total_title{
+    font-size: 26pt;
+    width: 80%;
+    padding-left: 10%;
+    text-align: center;
+    background-color: #49a954;
+    color: white;
+}
+    </style>
+    <body>
+      <!-- <div class="backdiv"></div> -->
+        <div class="menu-content">
+            <div class="container">
+                <header style="">
+                    <img class="float-left" id="logo" src="img/holo.gif">
+                    <h1 class="float-left mb-0" style="
+    padding-top: 15px;
+    color: #a07373;
+">RENACER DEL CAMPO</h1>
+                    
+                    <div class="clearfix"></div>
+                </header>
+                <nav class="row" style="position:fixed;margin-top: 52px;left:0px;">
+                    <div class="col col-sm-50 col-25 sm-nav-bottom" >
+                        <a id="btn_menu_form" href="javascript();"> Aparador</a>
+                    </div>
+                    <div class="col col-sm-50 col-25 sm-nav-bottom">
+                        <a class="sm-nav-right" onclick="" target="_blank">Mercado minorista</a>
+                    </div>
+                    <div class="col col-sm-50 col-25 sm-nav-bottom">
+                        <a class="sm-nav-right" onclick="" target="_blank">Mercado de tiendas</a>
+                    </div>
+                    <div class="col col-sm-50 col-25">
+                        <form class="form" id="total_top">Total <span id="total_bottom">MXN <span  style="color:tomato;font-size:20px;">$</span> <span id="sum" style="color:tomato;font-size:20px;"></span></span></form>
+                    </div>
+                    <div class="col col-sm-50 col-25">
+                        <button id="boton-completar" class="button" style="display:none;" onclick="step2();">Completar Orden</button>
+                    </div>
+                </nav>
+
+                 <!-- start content form to Sign in or sign up -->
+                
+
+            </div>
+        </div>
+        <div class="body-container" style="margin-top: 20vh;">
+            
+            <div class="container sm-pt-0">
+
+
+                <section id="intro" class="intro section pt-0 pb-0 mt-0 sm-mt-0 sm-pt-0">
+                    <div class="container searcharea" >
+                            <div class="row">
+                            <!-- <div class="col-sm-4" id="search1">
+                                <p class="instrucciones">1-Añade productos a tu orden mediante el menú</p>
+                                
+                            </div> -->
+                            
+                            <div class="col-sm-4" id="search2">
+
+                                
+                                <select class="form-control" id="clientesSel" style="display:none;">
+                                    <option value="null" >seleccionar</option>
+                                    <!-- <option value="c1">cliente 1</option>
+                                    <option value="c2">cliente 2</option> -->
+                                    <option value="new" selected="selected">Nuevo cliente</option>
+
+                                </select>
+                                <!-- <input type="password" id="fakepass"> -->
+                                <p class="instrucciones">Completa la información de tu pedido:</p>
+                                <br>
+                                <form id="registroForm" >
+                                  <div class="form-group" >
+                                    <label for="exampleInputEmail1"></label>
+                                    <input type="text" class="form-control rabi" id="nombre" aria-describedby="emailHelp" placeholder="NOMBRE">
+                                    
+                                  </div>
+                                  <div class="form-group">
+                                   <input type="text" class="form-control rabi" id="mail" aria-describedby="emailHelp" placeholder="MAIL">
+                                    
+                                  
+                                  </div> 
+                                  <div class="form-group">
+                                    <input type="number" class="form-control rabi" id="telefono" aria-describedby="emailHelp" placeholder="TELÉFONO">
+                                    
+                                  
+                                  </div> 
+                                  <div class="form-group">
+                                    <input type="text" class="form-control rabi" id="comentarios" aria-describedby="comments" placeholder="COMENTARIOS">
+                                    
+                                  </div>
+                                  
+                                  
+                                </form>
+                            </div>
+                            <div class="col-sm-4" id="search3">
+                                <p class="instrucciones">Escoge tu forma de pago y haz checkout</p>
+                                
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <input type="radio" checked="checked" name="zona" id="zona1" value="50" rec="milpa"> Recolección en la milpa: $50<br>
+                                        <!-- <input checked="checked" type="radio" name="zona" id="zona1" value="50" rec="Sempertuya"> recolección en Sempertuya: $50<br> -->
+                                        <input type="radio" name="zona" id="zona2" value="50" rec="verde venus"> recolección en Verde Venus: $50<br>
+                                        
+                                    </div>  
+                                    
+                                </div>
+                                <br>
+                                
+
+
+                            </div>
+                            <div class="col-sm-4" id="search3" style="padding: 30px;">
+                                <div class="row">
+                                    
+                                        <div class="carrito2"><p style="font-size: 13pt;color:red;">total:</p><span id="sum">0</span> Pesos </div>
+                                    
+                                    
+                                </div>
+                                <br><br><br>
+                                <div class="row">
+                                        <div class="checkout" onclick="checkout();">checkout</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"><hr>
+                        </div>  
+                    </div>  
+                </section>
+
+                <div class="section section-acordion" id="menuTable">
+                    <div class="controles">
+                        
+                         
+                        <h2>Productores</h2>
+                        <br>
+                        
+                                <table class="selectorslide"  style="display: inline-block;">
+                                    <tr id="search_productor">
+                                        
+                                    </tr>
+                                </table>
+                        <!-- <h2>Categorías</h2>
+                        <br>
+                            
+                                <table class="selectorslide" style="display: inline-block;">
+                                   <tr id="search_categoria">
+                                       
+                                   </tr>
+                                    
+                                </table> -->
+                        <br> 
+                        <br>
+                        <div class="carrito" onclick="togglecar()"><img src="img/carrito.png" style="width:50px;"></div>
+                        
+                    </div>
+                    <br>
+                    <div class="productos mb-1">
+                        <h2 class="float-left sm-hide">Lista de productos</h2>
+                        <form class="form float-right sm-float-left" role="search" method="get" id="searchform" >
+                            <input style="display:none;" type="text" value="" placeholder="Buscar" class="search text-uppercase class-h2 sm-text-left" id="search">
+                            <label for="search" class="class-h2"><i class="fa fa-search"></i></label>
+                            <span id="catindicator"></span>
+                        </form>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="table row" id="tabla_productos">
+                               
+                    </div>
+                    
+                </div>
+                <section class="horarios section" id="horariosTable">
+                    <h2>Comentarios Finales</h2>
+                    <textarea id="comentariosfinales" style="width:50%;"></textarea>
+                    <h2>ELIGE TU DÍA DE ENTREGA</h2>
+
+                    <table id="tablaHorarios" class="gfgtable">
+                        <tr>
+                            <td class="hor"> Matutino</td>
+                            <td class="hor"> Medio día</td>
+                            <td class="hor"> Vespertino</td>
+                        </th>
+                       <!-- <tr day="1">
+                           <td class="horario">lunes 9 a 12</td>
+                           <td class="horario">lunes 12 a 3</td>
+                           <td class="horario">lunes 3 a 6</td>
+                       </tr> -->
+                       <tr day="2">
+                           <td class="agotado hrb" id="2-matutino">mártes 9 a 12</td>
+                           <td class="agotado hrb" id="2-mediodia">mártes 12 a 3</td>
+                           <td class="agotado hrb" id="2-vespertino">mártes 3 a 6</td>
+                       </tr>
+                       <tr day="3">
+                           <td class="agotado hrb" id="3-matutino">Miércoles 9 a 12</td>
+                           <td class="agotado hrb" id="3-mediodia">Miércoles 12 a 3</td>
+                           <td class="agotado hrb" id="3-vespertino">Miércoles 3 a 6</td>
+                       </tr>
+                       <tr day="4">
+                           <td class="agotado hrb" id="4-matutino">Jueves 9 a 12</td>
+                           <td class="agotado hrb" id="4-mediodia">Jueves 12 a 3</td>
+                           <td class="agotado hrb" id="4-vespertino">Jueves 3 a 6</td>
+                       </tr>
+                       <tr day="5">
+                           <td class="agotado hrb" id="5-matutino">Viernes 9 a 12</td>
+                           <td class="agotado hrb" id="5-mediodia">Viernes 12 a 3</td>
+                           <td class="agotado hrb" id="5-vespertino">Viernes 3 a 6</td>
+                       </tr>
+                       <tr>
+                           <td class="horario hrb" id="recoleccionTienda" colspan="3">Recoger en tienda (dentro de 24 horas)</td>
+                       </tr>
+                    </table>
+                   <!--  <div class="row mb-1">
+                        <div class="col col-20 col-sm-50 sm-mb-05"><span class="horario">LUNES MATUTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1"><span class="horario">MARTES MATUTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1 sm-pl-0"><span class="horario">MIÉRCOLES MATUTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1"><span class="horario">JUEVES MATUTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1 sm-pl-0"><span class="horario">VIERNES MATUTINO</span></div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col col-20 col-sm-50 sm-mb-05"><span class="horario">LUNES VESPERTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1"><span class="horario">MARTES VESPERTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1 sm-pl-0"><span class="horario">MIÉRCOLES VESPERTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1"><span class="horario">JUEVES VESPERTINO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1 sm-pl-0"><span class="horario">VIERNES VESPERTINO</span></div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col col-20 col-sm-50 sm-mb-05"><span class="horario">LUNES NOCTURNO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1"><span class="horario">MARTES NOCTURNO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1 sm-pl-0"><span class="horario">MIÉRCOLES NOCTURNO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1"><span class="horario">JUEVES NOCTURNO</span></div>
+                        <div class="col col-20 col-sm-50 sm-mb-05 pl-1 sm-pl-0"><span class="horario">VIERNES NOCTURNO</span></div>
+                    </div> -->
+                    <hr>
+                    <hr>
+                    <div class="row">
+                        <img id="loading" src="img/loading.gif" style="width:300px;display:none;">
+                        <button style="display:none;" class="button-order" onclick="ordenar();">Ordenar</button>
+
+                    </div>
+                </section>
+                <section class="ticket mb-4 sm-mb-1" id="checkTable">
+                    <div class="row">
+                        <div class="col col-50 col-sm-100">
+                            <h2> Tu ticket de compra </h2>
+                            <div class="padding-2 pl-0 sm-padding-0">
+                                <p class="mt-0"><span class="class-h3">NÚMERO DE ORDEN:</span> <span class="underline" id="numorden"></span></p>
+
+                                <h3 class="mb-0">LA ENTREGAREMOS EN:</h3>
+                                <!-- <img src="img/QR.png" width="160" class="float-right ml-1" /> -->
+                                <p class="mt-0">
+                                    <span id="superdireccion"></span><br>
+                                    
+                                </p>
+
+
+                                <h3 class="mb-0">ENVÍO</h3>
+                                <p class="mt-0"><span id="usr_shipping"></span></p>
+
+                                <h3 class="mb-0">TOTAL</h3>
+                                <p class="mt-0">MXN $<span id="total_check"></span></p>
+
+                                <p class="mt-3 sm-mt-2 sm-mb-0"><small class="primary"><!-- Puedes seguir tu orden escaneando el código qr.  -->
+                                    En caso de recolección manual la dirección es:
+                                    <br>
+
+                                    Calle Tlacoquemecatl 67A, Tlacoquemecatl del Valle, Benito Juárez, 03200 Ciudad de México, CDMX, Mexico
+                         <a href="https://goo.gl/maps/JaCqRx7adNxEDS8UA">Link a google maps</a></small></p>
+                            </div>
+                        </div>
+                        <div class="col col-50 col-sm-100 sm-mt-2 sm-pt-1 sm-pt-1 sm-divider-top">
+                            <h2 class="pl-2 sm-pl-0"> Siguientes pasos </h2>
+                            <div class="padding-2 pl-3 pr-0 pb-0 sm-padding-0 divider-left sm-divider-left-0">
+                    
+                                <!-- <h3 class="mb-0 mt-0">Finaliza tu pedido</h3>
+                                <p class="mt-0 text-uppercase">Haz click en Completar Orden, si no lo haces, tus productos no serán apartados y pueden agotarse.</p> -->
+
+
+                                <h3 class="mb-0">Procede a realizar el pago, lo puedes hacer de dos formas</h3>
+
+                                <h3 class="mb-0">Por PAYPAL</h3>
+                                <p class="mt-0 text-uppercase">pablo@colectivoaxolote.mx</p>
+
+                                <h3 class="mb-0">Por transferencia</h3>
+                                <p class="mt-0 text-uppercase">
+                                    BANCOMER <br>
+                                    CLABE: 012180001943749597 <br>
+                                    CUENTA: 0194374959<br>
+                                    BENEFICIARIO: COLECTIVO ATL-XOLOTL S.A. DE C.V.
+                                </p>
+
+                                <h3 class="mb-0">Envía tu comprobante de pago y número de orden por whatsapp</h3>
+                                <p class="mt-0 text-uppercase">5572117094</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer>
+            <div class="footer1 text-center">
+                <div class="container">
+                    <div class="pt-4 pb-4 sm-pb-1 pt-4 sm-pt-3 width-half">
+                        <h2>Sigue tu pedidos</h2>
+                        <p class="text-uppercase">por favor, escribe tu número de orden para <br>que podamos rastrear tu pedido.</p>
+                    </div>
+                    <div class="pb-4 sm-pb-3 width-half">
+                        
+                            <div class="row">
+                                <div class="col col-60 col-sm-100"> <input id="searchorden" class="form-control margin-0 text-uppercase" type="text" placeholder="Número de orden"> </div>
+                                <div class="col col-40 col-sm-100 pl-1 sm-pl-0 sm-mt-1"> <button onclick="ordenview()" class="btn button-block margin-0 class-h2 text-uppercase">Buscar</button> </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="row" style="text-align:left;" id="showorder">
+
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="footer2 text-center">
+                <div class="container">
+                    <div class="pt-4 pb-2 sm-pt-2 width-half">
+                        <p class="text-lead">
+                            <a href="mailto:contacto@ciudadsilvestre.mx">contacto@ciudadsilvestre.mx</a><br>
+                            <a target="_blank" href="http://wa.link/yssoe4">5572117094</a><br>
+                            <a target="_blank" href="https://www.instagram.com/ciudad_silvestre/"><img src="img/inst.png" alt="instagram" width="25"></a><br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/superhi.js"></script>
+    </body>
+    <script type="text/javascript">
+      _MENU={};
+_productos={};
+carselected=false;
+_USER={};
+_ZONA="";
+_ENVIO=0;
+_RECOLECCION="Envío";
+$(document).ready(function(){
+    
+    makesum();
+    getMenu();
+    $("#menuTable").show();
+    jwt=getCookie("jwt");
+
+      if(jwt.length>=2){
+        //checkInfo();
+      }
+
+      $("#search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#tabla_productos div.row").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+      $('input:radio[name=zona]').on("click", function() {
+        makesum();
+      });
+      $('.hrb').on("click", function() {
+        id=$(this).attr("id");
+        setShipping(id);
+      });
+
+});
+function checkcp(cp){
+    numbercp = parseInt(cp, 10);
+    console.log("checking",numbercp)
+    $.ajax({
+        url: '/checkcp',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({"cp":numbercp}),
+        dataType: 'json',
+        error: function(xhr, status, error) {
+          console.log(xhr, status, error);
+          $("#console").html("Por el momento no tenemos cobertura en tu zona.");
+          //alert(xhr.responseText);
+        },
+        success: function (data){
+          console.log(data)
+          $("#console").html("");
+          _ZONA=data[1];
+          _ENVIO=data[2];
+          $("#zonaenv").html(data[1]);
+          $("#costoenv").html(data[2]);
+          $("#usr_shipping").html("  Zona:"+_ZONA+"<Br>  CP:"+cp+"<Br>  Costo:$"+data[2]);
+          makesum();
+          checkTickets();
+          // $(".step1").addClass('d-none');
+          // $(".step2").removeClass('d-none');
+          
+        }
+    });
+
+}
+function getMenu(){
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+        _MENU=myObj;
+        console.log(_MENU)
+        despliegaMenu();
+        
+        }
+    };
+    xmlhttp.open("GET", "/menu", true);
+    xmlhttp.send();
+}
+
+function despliegaMenu(){
+
+    productores={};
+    categorias={};
+    for(entry in _MENU){
+        originalname=entry;
+        nomnew=entry.split("(");
+        redes="-";
+        nomproductor=nomnew[0].trim();
+        nomproductor.replace('"','');
+
+        productores[nomproductor]=1;
+        // if(nomnew[1]){
+        //  redes=nomnew[1].replace(")","");
+        //  nomproductor='<a href="'+'https://www.instagram.com/'+nomproductor.replace("@","")+'" target="_blank">'+nomproductor+'</a>'
+        // }
+        buttons='';
+
+        
+        for(i=0;i<_MENU[entry].length;i++){
+            min=1;
+            d_=_MENU[entry][i];
+            categorias[d_[4]]=1;
+            nomproducto=d_[0].replace("[[[[[[[[[[[AGOTADO]]]]]]]]]]","(AGOTADO)").trim();
+            _productos[d_[9]]=[d_[0]+"[|]"+originalname,0,d_[7]]
+            //Procesa instagram
+            linkSocial=d_[5];
+            if(d_[5].includes("@")){
+                f1=d_[5].split("@");
+                linkSocial=f1[0].replace("(","")+'<a target="_blank" href="https://www.instagram.com/'
+                            +f1[1].replace(")","") 
+                            + '">@'+f1[1].replace(")","")+'</a>';
+                
+            }
+            //procesa fraccionados
+            if(d_[1].includes("/")){
+                console.log(d_[1],"--")
+                if(d_[1].includes("1/2")){min=".5"}
+                if(d_[1].includes("1/4")){min=".25"}
+                  if(d_[1].includes("1/10")){min=".1"}
+               
+            }
+            else{
+                
+            }
+            trstr='<div class="row productrow unselected" id="'+d_[9]+'"><div  class="col col-25 col-sm-100" style="font-size:16px !important;">'+nomproducto+'</div><div class="col col-20 col-sm-100 sm-mb-1">'+linkSocial+'</div><div class="col col-5 sm-hide catrow">'+d_[4]+', '+nomproductor+'</div><div class="col col-15 col-sm-50">mxn <span style="color:tomato;font-size:12px;">'+d_[7]+'</span> / '+d_[1]+'</div><div class="col col-5 sm-hide">'+d_[3]+'</div><div class="col col-20 col-sm-50 sm-text-right"><button class="btn-circle button-m">-</button> <input value="0" type="number" max="'+d_[3]+'" id="tentacles" idrow="'+d_[9]+'" onchange="updateInput(this.value,'+d_[9]+')" class="prInput inputsmall" producer="" product="'+d_[0]+'" name="tentacles"min="0" step="'+min+'" disabled> <button class="btn-circle button-p">+</button></div></div>';
+            $("#tabla_productos").append(trstr)
+        }
+
+    }
+    initB();
+    for(p in productores){
+        $("#search_productor").append('<td class="category" category="'+p+'" onclick=\'flitercat("'+p+'")\'>'+p+'</td>')
+    }
+    for(c in categorias){
+        $("#search_categoria").append('<td class="category" category="'+c+'" onclick=\'flitercat("'+c+'")\'>'+c+'</td>')
+    }
+    console.log("-->",productores,categorias);
+}
+function initB(){
+
+    $(".button-p").on("click", function() {
+        step=Number.parseFloat ( $(this).parent().find("input").attr("step") );
+        actual=Number.parseFloat ( $(this).parent().find("input").val() );
+        max=Number.parseFloat ( $(this).parent().find("input").attr("max") );
+        idrow= $(this).parent().find("input").attr("idrow") ;
+        if(actual+step <= max){
+            $(this).parent().find("input").val(actual+step);
+            updateInput($(this).parent().find("input").val(), idrow);
+        }
+        
+        //makesum();
+        console.log("plus",step)
+    });
+    $(".button-m").on("click", function() {
+        step=Number.parseFloat ( $(this).parent().find("input").attr("step") );
+        actual=Number.parseFloat ( $(this).parent().find("input").val() );
+        idrow= $(this).parent().find("input").attr("idrow") ;
+        if(actual-step >= 0){
+            $(this).parent().find("input").val(actual-step);
+            updateInput($(this).parent().find("input").val(), idrow);
+        }
+        
+        //makesum();
+    });
+
+
+}
+
+_CATSEL="";
+//NAVIGATION
+function flitercat(cat){
+    if(cat==_CATSEL){
+        $("#catindicator").html("");
+        $(".productrow").show();
+        $(".category").removeClass("categorySelected");
+        _CATSEL="";
+    }
+    else{
+        $("#catindicator").html(cat);
+        $(".productrow").show();
+        $(".productrow").each(function( index ) {
+            
+            $(".category").removeClass("categorySelected");
+            $("[category='"+cat+"']").addClass("categorySelected");
+            stringval=$(this).find(".catrow").html();
+            if(!stringval.includes(cat)){
+                $(this).hide();
+            }     
+
+        });
+        _CATSEL=cat;
+    }
+
+    
+}
+
+function togglecar(){
+
+    if(carselected){
+        $(".category").removeClass("categorySelected");
+        $("#catindicator").html("");
+        $(".carrito").css("background-color","rgb(238 237 230)")
+        //$(".unselected").toggle();
+        $(".productrow").show();
+        $(".unselected").show();
+        carselected=false;
+    }
+    else{
+        $(".category").removeClass("categorySelected");
+        $("#catindicator").html("");
+        $(".carrito").css("background-color","#1e824c")
+        $(".productrow").show();
+        $(".unselected").hide();
+        
+        carselected=true;
+    }
+}
+function updateInput(ish, idrow){
+    _productos[idrow][1]=ish;
+    precio=Number.parseFloat( _productos[idrow][2].replace("$","") );
+    if(ish==0){
+        $("div#"+idrow).css("background-color","transparent")
+        $("div#"+idrow).addClass( "unselected" );
+        $("div#"+idrow).find("td.totalind").html(0)
+    }
+    else{
+        $("div#"+idrow).css("background-color","#e0e0e0")
+        $("div#"+idrow).removeClass( "unselected" );
+        totalind=Number.parseFloat(ish)*precio;
+        $("div#"+idrow).find("td.totalind").html(totalind)
+    }
+    //console.log(_productos)
+    makesum()
+    //console.log(_productos)
+}
+function makesum(){
+    num=0;
+    sum=0;
+    envio=parseFloat( $("#costoenv").html() );//Number.parseFloat($('input:radio[name=zona]:checked').val() );
+    sum+=envio;
+    $("#compras0").html("");
+    $("#compras1").html("");
+    $("#compras2").html("");
+    for (id in _productos){
+        rem=num%3;
+        item=_productos[id];
+        precio=Number.parseFloat(item[2].replace("$","") );
+        cantidad=Number.parseFloat(item[1] );
+        sum+=precio*cantidad;
+        if (cantidad>0) {
+            carro=item[0]+" - "+cantidad+" - "+(precio*cantidad);
+            //$("#compras"+rem).append(carro);
+            num+=1;
+        }
+        
+    }
+    console.log("sum",sum,envio)
+    if(isNaN(sum)){
+        $("#sum").html("<span style=\"font-size: 8pt;color: blue;\">(inicia sesión)</span>");
+    }
+    else{
+        $("#sum").text(sum);
+    }
+    
+    $("#total_check").html(sum);
+}
+function checkout(){
+        form_name=_USER.username;
+        form_telefono=_USER.phone;
+        form_direccion=_USER.calle+" ext: "
+        +_USER.noext+"- int:"
+        +_USER.noint+", "
+        +_USER.colonia+", "+_USER.delegacion;
+        //form_comentario=$("#t_").val();
+        if(form_name=="" || form_telefono=="" || form_direccion=="" ){
+            alert("Favor de completar el registro");
+        }
+        else{
+        form_total=$("#sum").html();
+        envio=parseFloat( $("#costoenv").html() );
+        orden={"usuario":_USER.username,"envio":envio,"zona":_ZONA,"usuario_id":_USER.id,"orden":_productos}
+        $("#confirmainfo").text(form_name+" | "+form_direccion+" | "+form_telefono);
+        $("#confirmatotal").text("$"+form_total+"  Pesos");
+        $("#table_cont").hide();
+        $(".splash").show();
+        $(".searcharea").hide();
+
+        }
+        
+}
+function regresar(){
+        
+        $("#table_cont").show();
+        $(".splash").hide();
+        $(".searcharea").show();
+}
+function ordenar(){
+        $(".button-order").hide();
+        $("#loading").show();
+        orden={};
+        form_name=_USER.username;
+        form_telefono=_USER.phone;
+        form_direccion=_USER.calle+", ext: "
+        +_USER.noext+"- int: "
+        +_USER.noint+", "
+        +_USER.colonia+", "+_USER.delegacion;
+        indicaciones=_USER.indicaciones;
+        comentariosfinales=$("#comentariosfinales").val();
+        form_total=$("#sum").html();
+        envio=Number.parseFloat($("#costoenv").html() );
+        orden={"total":form_total,"envio":envio,"username":_USER.username,"envio":envio,"zona":_ZONA,"usuario_id":_USER.id,"direccion":form_direccion,"indicaciones":indicaciones,"phone":_USER.phone,"email":_USER.email,"comentariosfinales":comentariosfinales,"recoleccion":_RECOLECCION,"orden":_productos}
+        //console.log("_productos",JSON.stringify(orden));
+            //var data = _productos;
+            $.ajax({
+        url: '/orden',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(orden),
+        dataType: 'json',
+        success: function (data){
+            $("#loading").hide();
+            console.log("DATA",data);
+            step3();
+            $("#superdireccion").html(form_direccion);
+            $("#avisofinal").html('<p>Tu pedido ha sido procesado! Para confirmar tu orden te pedimos enviar tu comprobante de pago y tu número de orden por whatsapp al teléfono: xxxxxx.</p> <p>Si deseas visualizar tu pedido, copia tu número de orden e ingresalo en el siguiente link: <a href="/orden" target="_blank">VISOR</a></p>');
+            $("#numorden").text(data.orden);
+            $(".regresar").hide();
+            // $("#search1").html('<h1>numero de orden: '+data.orden+'</h1>')
+            // $("#search2").html('')
+            // $("#search3").html('Tu pedido ha sido procesado! Para confirmar tu orden te pedimos enviar tu comprobante de pago y tu número de orden por whatsapp al teléfono: 5572117094')
+        }
+    });
+
+}
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";"+ + expires + ";path=/; SameSite=None; Secure";
+}
+function dosignin(){
+  //jwt=getCookie("jwt");
+
+  if(jwt.length>=2){
+    //checkInfo();
+  }
+  else{
+    console.log("sign in");
+  }
+  _u=$("#_u").val().toLowerCase();
+  _p=$("#_p").val();
+  console.log("log",_u,_p)
+  $.ajax({
+        url: '/api/auth/signin',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({"email":_u,"password":_p}),
+        beforeSend: function (xhr) {   //Include the bearer token in header
+        xhr.setRequestHeader("Authorization", 'Bearer '+ jwt);
+        },
+        dataType: 'json',
+        error: function (xhr, ajaxOptions, thrownError) {
+        console.log(xhr);
+        alert(xhr.responseJSON.message);
+      },
+        success: function (data){
+            $("#boton-completar").show();
+            if(data.username){
+                _USER=data;
+                isuser();
+                for (key in data) {
+                    $("#t_"+key).html(data[key]);
+                }
+             checkcp(data["cp"]);
+
+            }
+          setCookie("orionuser",data.username,70);
+          setCookie("jwt",data.accessToken,70);
+          console.log("DATA",data);
+
+          
+        }
+    });
+}
+function isuser(){
+    $("#infousuario").show();
+                $("#loginform").hide();
+                $("#nuevoreg").hide();
+                $("#logout_bt").show();
+                $(".login_form").hide();
+                $("#registro_input").hide();
+                $("#info_input").show();
+                $("#menuTable").show();
+                $("#intro").hide();
+}
+function step1(){
+     $("#horariosTable").hide();
+    $("#menuTable").show();
+}
+function step2(){
+    $("#intro").hide();
+    $("#horariosTable").show();
+    $("#menuTable").hide();
+}
+function step3(){
+    $("#horariosTable").hide();
+    $("#checkTable").show();
+}
+function dologout(){
+    setCookie("orionuser","void",10);
+    setCookie("jwt","void",10);
+    location.reload();
+}
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+function setShipping(id){
+    $(".button-order").show();
+    if(id=="recoleccionTienda"){
+        $("#costoenv").html(0);
+        makesum();
+    }
+    else{
+        $("#costoenv").html(_ENVIO);
+        makesum();
+    }
+    $(".hrb").removeClass("horarioSelected");
+    $("#"+id).addClass("horarioSelected");
+    _RECOLECCION=id;
+    splitter=id.split("-");
+    var days = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+    day=days[splitter[0]];
+    console.log("shipping",day,splitter[0]);
+}
+function checkTickets(){
+    console.log("checkTickets")
+    $.ajax({
+        url: '/checktickets',
+        type: 'GET',
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function (data){
+        _CALENDARIO=[];
+          console.log("DATA tickets",data);
+          var now = new Date();
+          var days = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+          numday=now.getDay();
+
+          var day = days[ numday ];
+          console.log(numday,day,"zona",_ZONA);
+          var d = new Date();
+          var horadeldia = d.getHours();
+            console.log("hora",horadeldia);
+            
+          for(i=numday+1;i<days.length;i++){
+            horarios=data[days[i]];
+            for(horario in horarios){
+                console.log(i+"-"+horario,_ZONA);
+                
+                if(horarios[horario][_ZONA]>0){
+                    $("#"+i+"-"+horario).addClass("horario");
+                    $("#"+i+"-"+horario).removeClass("agotado");
+                    //5-15:00-18:00
+                }
+                
+            }
+            
+            console.log(_CALENDARIO);
+          }
+          colchon={"matutino":12,"mediodia":15,"vespertino":18}
+            horariosP=data[days[numday+1]];
+            console.log("horariosP",horariosP,numday+1)
+            // for(horario in horariosP){
+            //     console.log("cancelando horarios...",(numday+1)+"-"+horario,colchon[horario],horadeldia);
+            //     if(colchon[horario]>=horadeldia){
+            //         // $("#"+(numday+1)+"-"+horario).addClass("horario");
+            //         // $("#"+(numday+1)+"-"+horario).removeClass("agotado");
+            //         //5-15:00-18:00
+            //     }
+            //     else{
+            //         $("#"+(numday+1)+"-"+horario).addClass("agotado");
+            //         $("#"+(numday+1)+"-"+horario).removeClass("horario");
+            //     }
+            // }
+          
+          
+          
+        }
+    });
+}
+function checkInfo(){
+    jwt=getCookie("jwt");
+    username=getCookie("orionuser");
+    $.ajax({
+        url: '/api/touch/user',
+        type: 'GET',
+        contentType: 'application/json',
+        headers: {"x-access-token":jwt,
+                  "orionuser":username
+        },
+        dataType: 'json',
+        success: function (data){
+          console.log("DATA user",data);
+          $("#userinfo").html();
+          if(data.username.length>=1){
+            $("#boton-completar").show();
+            isuser()
+            _USER=data;
+            zona=$("#zonaenv").html();
+            costo=$("#costoenv").html();
+
+            $("#usr_address").html(data.calle+" "+data.noext+" "+data.noint+", "+data.colonia+", "+data.delegacion);
+            $("#usr_phone").html(data.phone);
+            $("#usr_shipping").html(zona+" - "+data.cp+" - $"+costo);
+            for (key in data) {
+                $("#t_"+key).html(data[key]);
+                // $("#userinfo").append('<div id="t_'+key+'">'+key+'</div><div>'+data[key]+'</div>');
+              }
+            checkcp(data["cp"]);
+            $("#registro_input").hide();
+            $("#info_input").show();
+            $("#banner_label").html('<a id="btn_menu_form" href="javascript();">  <span class="sm-hide">Usuario</span></a>')
+          }
+          
+          
+        }
+    });
+    console.log("already signed");
+}
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}    
+function dosignup(){
+  _R={};
+  vacios="";
+  $( "input.obligatorio" ).each(function() {
+     if($( this ).attr("name")=="username"){
+        _R[$( this ).attr("name")]=$( this ).val().toLowerCase();
+     }
+     else{
+        _R[$( this ).attr("name")]=$( this ).val();
+     }
+    
+  });
+  // _R["username"]=_R["phone"]
+  $( ".obligatorio" ).each(function() {
+    val=$( this ).val();
+    if(val==""){
+      vacios+=$( this ).attr("name")+", ";
+      console.log("incompleto",$( this ).attr("name"));
+    }
+  });
+  if(vacios!=""){
+    $("#console").html("faltan los siguientes campos: "+vacios);
+  }
+  else{
+    console.log("log",_R)
+    $.ajax({
+        url: '/api/auth/signup',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(_R),
+        dataType: 'json',
+        error: function(xhr, status, error) {
+          console.log(xhr, status, error);
+          $("#console").html(xhr.responseText);
+          //alert(xhr.responseText);
+        },
+        success: function (data){
+          $("#console").html("Tu usuario fue creado exitosamente. Por favor haz login :)");
+          // $(".step2").addClass('d-none');
+          // $(".step3").removeClass('d-none');
+
+          // $("#console2").html("Tu usuario fue creado exitosamente y esta activo! Bienvenido a la red Orion. <a href=\"/\">Haz click aquí para ir al mercado.</a>");
+          
+        }
+    });
+  }
+  
+  
+}  
+function tobottom(){
+    $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+}
+
+//ORDERVIEW
+
+function ordenview(){
+    orden={}
+    mi=$("#searchorden").val();
+    orden["nombre"]=mi;
+    $.ajax({
+        url: '/ordenview',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(orden),
+        dataType: 'json',
+        success: function (data){
+            console.log(data);
+            despliegaInfoOrden(data )
+        }
+    });
+
+}
+function despliegaInfoOrden(data){
+    $("#showorder").html("");
+    $("#showorder").append('<h2>Info</h2>')
+    for(key in data){
+        if(key!="orden" && key!="usuario_id"){
+            $("#showorder").append('<span style="color:black;" class="infotitle">'+key+"</span>:"+data[key]+'<Br><Hr>')
+        }
+        else if(key=="orden"){
+            $("#showorder").append('<h2>Orden</h2>')
+            for(id in data[key]){
+                
+                ordens=data[key][id]
+                if(ordens[1]>0){
+                    $("#showorder").append('<span style="color:black;" class="infotitle">'+ordens[0]+"</span>:"+ordens[1]+'<Br><Hr>')
+                }
+                
+            }
+        }
+    }
+}
+
+
+    </script>
+</html>
