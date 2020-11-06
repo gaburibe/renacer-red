@@ -281,8 +281,9 @@ app.post('/orion/resumen', function (req, res) {
 	 		productos=data[0];
 	 		precioproductor=data[2];
 	 		precioC=data[7]
+	 		unidad=data[1];
 	 		if(!menuthis[productos]){
-	 			menuthis[productos]=[precioproductor,precioC];
+	 			menuthis[productos]=[precioproductor,precioC,unidad];
 	 		}
 	 		//menuthis[proovedor].push(data);
 	 	}
@@ -290,7 +291,7 @@ app.post('/orion/resumen', function (req, res) {
 	 })	
 	 .on("end", function(){
 	 	console.log(menuthis)
-	 	csvsend="Productor\t Producto\t total de unidades ordenadas\t total venta \t total precio productor \n";
+	 	csvsend="Productor\t Producto\tunidad \t total de unidades ordenadas\t total venta \t total precio productor \n";
   		for (productor in ordenes){
   			
   			
@@ -299,11 +300,11 @@ app.post('/orion/resumen', function (req, res) {
   					precios=menuthis[producto];
   					console.log(precios)
   					precioinicial=parseFloat(precios[0].replace("$",""));
-
+  					unidad=precios[2];
   					//precio a pagar
   					ordenes[productor][producto][2]=ordenes[productor][producto][0]*precioinicial;
   					console.log(ordenes[productor][producto][2])
-	  				csvsend+=productor+"\t"+producto+
+	  				csvsend+=productor+"\t"+producto+"\t"+unidad+
 	  				"\t"+ordenes[productor][producto][0]
 	  				+"\t"+ordenes[productor][producto][1]
 	  				+"\t"+ordenes[productor][producto][2]
