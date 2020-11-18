@@ -319,6 +319,7 @@ app.post('/orion/resumen', function (req, res) {
   		
   });
 });
+
 app.post('/orion/resumenzonas', function (req, res) {
 
   menuManager.getResumenZonas(function(zonas){
