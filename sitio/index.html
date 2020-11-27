@@ -537,7 +537,7 @@ function getMenu(){
 	    
 	  	}
 	};
-	xmlhttp.open("GET", "http://199.244.51.123:3001/menu", true);
+	xmlhttp.open("GET", "http://199.244.51.123:3002/menu", true);
 	xmlhttp.send();
 }
 function ordermenu(){
@@ -848,7 +848,7 @@ function ordenar(){
 		orden={"nombre":form_name, "total":form_total,"telefono":form_telefono,"dicreccion":form_direccion,"comentarios":form_comentario,"recoleccion":recoleccion,"costo_envio":envio,"mail":form_mail,"orden":_productos}
 
 	        $.ajax({
-        url: 'http://199.244.51.123:3001/orden',
+        url: 'http://199.244.51.123:3002/orden',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(orden),
