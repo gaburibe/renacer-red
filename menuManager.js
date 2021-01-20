@@ -217,77 +217,83 @@ exports.getOrdenes= function(callback){
 	});
 }
 exports.getResumenZonas= function(callback){
-	fs.readdir("ordenes", function (err, files) {
-	 zonas={};
-	 admin={};
-	 csv="";
-	  if (err) {
-        console.error("Error stating file.", error);
-        return;
-      }
-      files.forEach(function (file, index) {
-      	
-      	if(!file.includes(".DS")){
+	bandeja={};
+	admin={};
+	zonas={};
+	header="";
+	csv="";
+	fs.readdir("./bandeja", function (err, files) {
+	      		bandeja={};
+	      		files.forEach(function (file) {
+	      			confirmedFile=file.replace(".pdf","");
+	      			if(!confirmedFile.includes(".DS")){
+	      				if (fs.existsSync('ordenes/'+confirmedFile)) {
+				    		admin[file] = JSON.parse(fs.readFileSync('ordenes/'+confirmedFile, 'utf8'));
+				      		//console.log(admin[file])
+				      		orden=admin[file].orden;
+				      		zona=admin[file].recoleccion;
+				      		if(!zonas[zona]){zonas[zona]={};}
+				      		for (productoIndex in orden){
 
-      		admin[file] = JSON.parse(fs.readFileSync('ordenes/'+file, 'utf8'));
-      		console.log(admin[file])
-      		orden=admin[file].orden;
-      		zona=admin[file].recoleccion;
-      		if(!zonas[zona]){zonas[zona]={};}
-      		for (productoIndex in orden){
+				      			name=orden[productoIndex][0].split("[|]");
+				      			num=parseFloat(orden[productoIndex][1]);
+				      			precio=parseFloat( orden[productoIndex][2].replace("$","")  )
+				      			if(!zonas[zona][name[0]] && num!=0){zonas[zona][name[0]]=[0,0];}
+				      			if (num!=0) {
+				      				zonas[zona][name[0]][0]+=num;
+				      				zonas[zona][name[0]][1]+=precio;
+				      			}
+				      		}
+				  		}
+			      		
+			      	}
+			    });
+	    		
 
-      			name=orden[productoIndex][0].split("[|]");
-      			num=parseFloat(orden[productoIndex][1]);
-      			precio=parseFloat( orden[productoIndex][2].replace("$","")  )
-      			if(!zonas[zona][name[0]] && num!=0){zonas[zona][name[0]]=[0,0];}
-      			if (num!=0) {
-      				zonas[zona][name[0]][0]+=num;
-      				zonas[zona][name[0]][1]+=precio;
-      			}
-      		}
-      	}
-      });
-      callback(zonas);
+	     callback(zonas);
+
 	});
+
+
+	
 }
 exports.getResumen= function(callback){
-	
-	fs.readdir("ordenes", function (err, files) {
-	 productores={};
-	 admin={};
-	 csv="";
-	  if (err) {
-        console.error("Error stating file.", error);
-        return;
-      }
-      files.forEach(function (file, index) {
-      	
-      	if(!file.includes(".DS")){
-      		RULETA={};
-      		admin[file] = JSON.parse(fs.readFileSync('ordenes/'+file, 'utf8'));
-      		//console.log(admin[file])
-      		orden=admin[file].orden;
-      		for (productoIndex in orden){
-      			name=orden[productoIndex][0].split("[|]");
-      			num=parseFloat(orden[productoIndex][1]);
-      			precio=parseFloat( orden[productoIndex][2].replace("$","")  )
-      			productosJunto=name[1].split("-");
-      			
-      				if(!productores[name[1]]){
-      				productores[name[1]]={}
-	      			}
-	      			if(productores[name[1]][name[0]]){
-	      				productores[name[1]][name[0]][0]+=num;
-	      				productores[name[1]][name[0]][1]+=num*precio;
-	      			}
-	      			else{productores[name[1]][name[0]]=[num,num*precio];}
+	bandeja={};
+	productores={};
+	admin={};
+	header="";
+	csv="";
+	fs.readdir("./bandeja", function (err, files) {
+	      		bandeja={};
+	      		files.forEach(function (file) {
+	      			confirmedFile=file.replace(".pdf","");
+	      			if(!confirmedFile.includes(".DS")){
+	      				if (fs.existsSync('ordenes/'+confirmedFile)) {
+				    		admin[file] = JSON.parse(fs.readFileSync('ordenes/'+confirmedFile, 'utf8'));
+				      		orden=admin[file].orden;
+				      		for (productoIndex in orden){
+				      			name=orden[productoIndex][0].split("[|]");
+				      			num=parseFloat(orden[productoIndex][1]);
+				      			precio=parseFloat( orden[productoIndex][2].replace("$","")  )
+				      			productosJunto=name[1].split("-");
+				      			
+				      				if(!productores[name[1]]){
+				      				productores[name[1]]={}
+					      			}
+					      			if(productores[name[1]][name[0]]){
+					      				productores[name[1]][name[0]][0]+=num;
+					      				productores[name[1]][name[0]][1]+=num*precio;
+					      			}
+					      			else{productores[name[1]][name[0]]=[num,num*precio];}
+				      		}
+				  		}
+			      		
+			      	}
+			    });
+	    		
 
+	     callback(productores)
 
-      			
-      		}
-      	}
-      });
-      callback(productores);
 	});
 }
 exports.getOrdenesJson= function(callback){
