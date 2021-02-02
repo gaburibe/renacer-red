@@ -299,16 +299,19 @@ app.post('/orion/resumen', function (req, res) {
   				for(producto in ordenes[productor]){
   					precios=menuthis[producto];
   					console.log(precios)
-  					precioinicial=parseFloat(precios[0].replace("$",""));
-  					unidad=precios[2];
-  					//precio a pagar
-  					ordenes[productor][producto][2]=ordenes[productor][producto][0]*precioinicial;
-  					console.log(ordenes[productor][producto][2])
-	  				csvsend+=productor+"\t"+producto+"\t"+unidad+
-	  				"\t"+ordenes[productor][producto][0]
-	  				+"\t"+ordenes[productor][producto][1]
-	  				+"\t"+ordenes[productor][producto][2]
-	  				+"\n";
+					if(precios){
+					   precioinicial=parseFloat(precios[0].replace("$",""));
+  						unidad=precios[2];
+  						//precio a pagar
+  						ordenes[productor][producto][2]=ordenes[productor][producto][0]*precioinicial;
+  						console.log(ordenes[productor][producto][2])
+	  					csvsend+=productor+"\t"+producto+"\t"+unidad+
+	  					"\t"+ordenes[productor][producto][0]
+	  					+"\t"+ordenes[productor][producto][1]
+	  					+"\t"+ordenes[productor][producto][2]
+	  					+"\n";
+					 }
+  					
 	  			}
   			
   			
